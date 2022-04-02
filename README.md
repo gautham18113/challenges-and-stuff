@@ -1,4 +1,4 @@
-[![Java CI with Gradle](https://github.com/gautham18113/AlgorithmsJava/actions/workflows/gradle.yml/badge.svg)](https://github.com/gautham18113/AlgorithmsJava/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/gautham18113/AlgorithmsJava/actions/workflows/gradle.yml/badge.svg?event=push)](https://github.com/gautham18113/AlgorithmsJava/actions/workflows/gradle.yml)
 
 # Description
 
