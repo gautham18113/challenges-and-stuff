@@ -1,5 +1,6 @@
 package solutions.arrays;
 
+import common.TestUtil;
 import core.TestCase;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,12 +13,6 @@ public class MinimumWaitingTimeSolutionTest {
 
     @Test
     public void testMinimumWaitingTime() {
-
-        for(TestCase testCase: minimumWaitingTimeProblem.problem.getTestCases()) {
-
-            Assertions
-                .assertThat(minimumWaitingTimeSolution.solve(testCase.getInputs().get(0)).getOutput())
-                .isEqualTo(testCase.getOutput().getOutput());
-        }
+        TestUtil.runAssertions(minimumWaitingTimeProblem, minimumWaitingTimeSolution);
     }
 }

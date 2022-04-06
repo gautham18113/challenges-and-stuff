@@ -35,7 +35,6 @@ import java.util.Arrays;
  * <h3>Sample Output #2</h3>
  * <pre>5 <span>// 0, 1, 1, 2, 3, 5</span>
  * </pre>
- * </div></div>
  */
 public class NthFibonacciProblem implements ProblemInterface {
     @Override

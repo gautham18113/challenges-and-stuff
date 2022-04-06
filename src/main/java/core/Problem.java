@@ -1,5 +1,6 @@
 package core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Problem {
@@ -33,6 +34,12 @@ public class Problem {
 
         public Builder withTestCaseList(List<TestCase> testCaseList) {
             this.testCaseList = testCaseList;
+            return this;
+        }
+
+        public Builder withTestCase(TestCase testCase) {
+            if(this.testCaseList == null) this.testCaseList = new ArrayList<>();
+            this.testCaseList.add(testCase);
             return this;
         }
 

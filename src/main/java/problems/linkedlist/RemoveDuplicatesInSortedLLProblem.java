@@ -27,12 +27,12 @@ public class RemoveDuplicatesInSortedLLProblem implements ProblemInterface {
      *   a <span>next</span> node pointing to the next node in the list or to
      *   <span>None</span> / <span>null</span> if it's the tail of the list.
      * </p>
-     * <p></p>
+     * <p>  </p>
      * <h3>Sample Input</h3>
      * <pre><span class="CodeEditor-promptParameter">linkedList</span> = 1 -&gt; 1 -&gt; 3 -&gt; 4 -&gt; 4 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 6 <span class="CodeEditor-promptComment">// the head node with value 1</span>
      * </pre>
      * <h3>Sample Output</h3>
-     * <pre>1 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 <span class="CodeEditor-promptComment">// the head node with value 1</span>
+     * <pre>1 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 <span>// the head node with value 1</span></pre>
      */
     @Override
     public Problem getProblem() {

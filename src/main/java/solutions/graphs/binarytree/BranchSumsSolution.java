@@ -7,13 +7,6 @@ import core.datastructure.CustomBinaryTree;
 
 public class BranchSumsSolution implements Solution {
 
-
-    @Override
-    public Output<?> solve(Input<?> input) {
-        CustomBinaryTree root = (CustomBinaryTree) input.getInput();
-        return new Output<>(depthSum(root, -1));
-    }
-
     /**
      * If we were to isolate a node, we will not be able to find the depth
      * without knowing how many parent nodes are above it.
@@ -35,8 +28,25 @@ public class BranchSumsSolution implements Solution {
      * That is, sum of depth of current node, cumulative depth of left sub-tree
      * and cumulative depth of right sub-tree.
      *
-     *
+     * @param input {@link Input} input wrapper containing binary tree whose cumulative depth should be calculated
+     * @return output {@link Output} output wrapper with int cumulative depth
      **/
+    @Override
+    public Output<?> solve(Input<?> input) {
+        CustomBinaryTree root = (CustomBinaryTree) input.getInput();
+        return new Output<>(depthSum(root, -1));
+    }
+
+
+     /**
+      *
+      * Helper function to recursively calculate sum of depths.
+      * @param node {@link CustomBinaryTree} a Binary tree node
+      * @param cumulativeSum the cumulative sum of depths updated with every recursive call
+      *
+      * @return int final sum of depths
+      *
+      **/
     public int depthSum(CustomBinaryTree node, int cumulativeSum) {
 
         if(node == null) {

@@ -11,23 +11,41 @@ public class LongestPalindrome {
     public Problem problem;
     /**
      *
-     * Given a string s, return the longest palindromic substring in s.
+     * <div><p>Given a string <code>s</code> which consists of lowercase or uppercase letters, return <em>the length
+     * of the <strong>longest palindrome</strong></em>&nbsp;that can be built with those letters.</p>
      *
-     * Constraints:
-     * 1 <= s.length <= 1000
-     * s consist of only digits and English letters.
+     * <p>Letters are <strong>case sensitive</strong>, for example,&nbsp;<code>"Aa"</code> is not considered a
+     * palindrome here.</p>
      *
-     * Example 1:
+     * <p>&nbsp;</p>
+     * <p><strong>Example 1:</strong></p>
      *
-     * Input: s = "babad"
-     * Output: "bab"
-     * Explanation: "aba" is also a valid answer.
+     * <pre><strong>Input:</strong> s = "abccccdd"
+     * <strong>Output:</strong> 7
+     * <strong>Explanation:</strong>
+     * One longest palindrome that can be built is "dccaccd", whose length is 7.
+     * </pre>
      *
-     * Example 2:
+     * <p><strong>Example 2:</strong></p>
      *
-     * Input: s = "cbbd"
-     * Output: "bb"
+     * <pre><strong>Input:</strong> s = "a"
+     * <strong>Output:</strong> 1
+     * </pre>
      *
+     * <p><strong>Example 3:</strong></p>
+     *
+     * <pre><strong>Input:</strong> s = "bb"
+     * <strong>Output:</strong> 2
+     * </pre>
+     *
+     * <p>&nbsp;</p>
+     * <p><strong>Constraints:</strong></p>
+     *
+     * <ul>
+     * 	<li><code>1 &lt;= s.length &lt;= 2000</code></li>
+     * 	<li><code>s</code> consists of lowercase <strong>and/or</strong> uppercase English&nbsp;letters only.</li>
+     * </ul>
+     * </div>
      */
     public LongestPalindrome() {
         problem = Problem.builder().withTestCaseList(
