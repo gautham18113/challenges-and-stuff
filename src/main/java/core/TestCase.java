@@ -45,8 +45,20 @@ public class TestCase {
             return this;
         }
 
+        public Builder withInput(Object param) {
+            if(inputParameters == null)  inputParameters=new ArrayList<>();
+
+            inputParameters.add(new Input<>(param));
+            return this;
+        }
+
         public Builder withOutput(Output<?> op) {
             output = op;
+            return this;
+        }
+
+        public Builder withOutput(Object op) {
+            output = new Output<>(op);
             return this;
         }
 
