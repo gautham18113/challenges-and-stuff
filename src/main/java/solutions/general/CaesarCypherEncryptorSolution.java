@@ -6,7 +6,7 @@ import core.io.Output;
 
 import java.util.List;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class CaesarCypherEncryptorSolution implements Solution {
     @Override
     public Output<?> solve(Input<?> input) {

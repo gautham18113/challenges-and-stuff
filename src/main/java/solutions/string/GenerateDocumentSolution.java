@@ -22,6 +22,7 @@ public class GenerateDocumentSolution implements Solution {
      * @return boolean
      */
     @Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public Output<?> solve(Input<?> input) {
         List<Input> params = (List<Input>) input.getInput();
 

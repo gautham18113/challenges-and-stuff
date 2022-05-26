@@ -27,6 +27,7 @@ public class TandemBicycleSolution implements Solution {
      * @return output {@code Output} Output wrapper containing result {@link Output}
      */
     @Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public Output<?> solve(Input<?> input) {
 
         List<Input> inputs = (List<Input>) input.getInput();

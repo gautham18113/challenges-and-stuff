@@ -7,6 +7,7 @@ import core.datastructure.SinglyLinkedList;
 
 public class RemoveDuplicatesInSortedLLSolution implements Solution {
     @Override
+    @SuppressWarnings("unchecked")
     public Output<?> solve(Input<?> input) {
         SinglyLinkedList<Integer> head = (SinglyLinkedList<Integer>) input.getInput();
         SinglyLinkedList<Integer> current = head;

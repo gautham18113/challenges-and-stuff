@@ -19,7 +19,8 @@ public class Input<T extends Object>{
         if(input instanceof Boolean) return (Boolean) input;
         return null;
     }
-
+  
+    @SuppressWarnings("unchecked")
     public List<T> toList() {
         if(input instanceof List) return (List<T>) input;
         return null;

@@ -23,6 +23,7 @@ public class SinglyLinkedList<T>{
      * @return {@link Boolean} True or False
      */
     @Override
+    @SuppressWarnings({"unchecked"})
     public boolean equals(Object o) {
 
         if(o == this) return true;

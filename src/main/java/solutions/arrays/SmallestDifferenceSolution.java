@@ -31,7 +31,7 @@ import java.util.List;
  *      </ul>
  * </p>
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("all")
 public class SmallestDifferenceSolution implements Solution {
     @Override
     public Output<?> solve(Input<?> input) {
