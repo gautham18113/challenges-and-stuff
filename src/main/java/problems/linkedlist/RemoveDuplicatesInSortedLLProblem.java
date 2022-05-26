@@ -12,7 +12,6 @@ import java.util.List;
 
 public class RemoveDuplicatesInSortedLLProblem implements ProblemInterface {
 
-    private Problem problem;
     /**
      * <p>
      *   You're given the head of a Singly Linked List whose nodes are in sorted order

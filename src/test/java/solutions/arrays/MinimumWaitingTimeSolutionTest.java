@@ -1,8 +1,6 @@
 package solutions.arrays;
 
 import common.TestUtil;
-import core.TestCase;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import problems.arrays.MinimumWaitingTimeProblem;
 

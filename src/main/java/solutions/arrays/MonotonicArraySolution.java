@@ -9,45 +9,22 @@ public class MonotonicArraySolution implements Solution {
     @Override
     public Output<?> solve(Input<?> input) {
         int[] array = (int[]) input.getInput();
+        return new Output<>(determineTrend(array));
+    }
+    private boolean determineTrend(int[] arr) {
+        boolean isNonIncreasing = true;
+        boolean isNonDecreasing = true;
 
-        int idx = 0;
-        Boolean increasing = null;
+        if(arr.length <= 1) return true;
 
-        if(array.length <= 2) return new Output<>(true);
-
-
-        while(idx < array.length - 1) {
-
-            if(increasing == null && array[idx] < array[idx + 1]) {
-                increasing = true;
-                idx++;
-                continue;
+        for(int i = 1; i < arr.length; i++) {
+            if(arr[i - 1] < arr[i]) {
+                isNonIncreasing = false;
             }
-
-            if(increasing == null && array[idx] > array[idx + 1]) {
-                increasing = false;
-                idx++;
-                continue;
+            if(arr[i - 1] > arr[i]) {
+                isNonDecreasing = false;
             }
-
-            if(increasing == null && array[idx] == array[idx + 1]) {
-                idx++;
-                continue;
-            }
-
-
-            // Increasing but changes direction
-            if(increasing && (array[idx] > array[idx + 1])){
-                return new Output<>(false);
-            }
-
-            // Decreasing but changes direction
-            if(!increasing && (array[idx] < array[idx + 1])){
-                return new Output<>(false);
-            }
-
-            idx++;
         }
-        return new Output<>(true);
+        return isNonDecreasing || isNonIncreasing;
     }
 }

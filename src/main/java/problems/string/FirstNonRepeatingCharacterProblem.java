@@ -3,7 +3,6 @@ package problems.string;
 import core.Problem;
 import core.ProblemInterface;
 import core.TestCase;
-import core.io.Input;
 
 /**
  * <div class="_3ujpThEtqc2woOs6g2RNC2 ae-workspace-dark"><div class="html">

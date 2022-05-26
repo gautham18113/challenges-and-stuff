@@ -28,6 +28,7 @@ public class MinimumWaitingTimeSolution implements Solution {
      * @return Output
      */
     @Override
+    @SuppressWarnings("Unchecked")
     public Output<?> solve(Input<?> input) {
         List<Integer> queries = (List<Integer>) input.getInput();
         Collections.sort(queries);

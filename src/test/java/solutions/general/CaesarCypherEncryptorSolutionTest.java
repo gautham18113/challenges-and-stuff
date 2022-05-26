@@ -1,9 +1,6 @@
 package solutions.general;
 
 import common.TestUtil;
-import core.io.Input;
-import core.io.Output;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import problems.general.CaesarCypherEncryptorProblem;
 
