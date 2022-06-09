@@ -9,7 +9,11 @@ public class LongestPeakSolution implements Solution{
     /* For problems like this where we need to look behind or forward,
      * it's better to use a while loop.
      * And for comparison with next element, it is better to compare i
-     * and i+1 instead of i and i-1 since this will
+     * and i+1 instead of i and i-1 since this will cause an index error.
+     *
+     * Time Complexity: O(N) since we never visit a certain node
+     * more than once.
+     * Space Complexity: O(1)
      */
     @Override
     public Output<?> solve(Input<?> input) {
