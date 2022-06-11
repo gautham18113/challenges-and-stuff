@@ -2,9 +2,9 @@ package core.datastructure;
 
 import java.util.List;
 
-public class SinglyLinkedList<T>{
+public class LL<T>{
 
-    public SinglyLinkedList<T> next;
+    public LL<T> next;
     public T  value;
 
     /**
@@ -27,10 +27,10 @@ public class SinglyLinkedList<T>{
     public boolean equals(Object o) {
 
         if(o == this) return true;
-        if(!(o instanceof SinglyLinkedList)) return false;
+        if(!(o instanceof LL)) return false;
 
-        SinglyLinkedList<T> thisList = this;
-        SinglyLinkedList<T> toCompareList = (SinglyLinkedList<T>) o;
+        LL<T> thisList = this;
+        LL<T> toCompareList = (LL<T>) o;
 
         while(thisList != null) {
 
@@ -48,12 +48,12 @@ public class SinglyLinkedList<T>{
     }
 
 
-    public SinglyLinkedList<T> buildSinglyLinkedList(List<T> items) {
-       SinglyLinkedList<T> root = new SinglyLinkedList<>();
-       SinglyLinkedList<T> curr = root;
+    public LL<T> buildLinkedList(List<T> items) {
+       LL<T> root = new LL<>();
+       LL<T> curr = root;
        for(T item: items) {
            curr.value = item;
-           curr.next = new SinglyLinkedList<>();
+           curr.next = new LL<>();
            curr = curr.next;
        }
        return root;

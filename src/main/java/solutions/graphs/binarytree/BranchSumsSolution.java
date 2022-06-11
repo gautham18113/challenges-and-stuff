@@ -3,7 +3,7 @@ package solutions.graphs.binarytree;
 import core.io.Input;
 import core.io.Output;
 import core.Solution;
-import core.datastructure.CustomBinaryTree;
+import core.datastructure.BST;
 
 public class BranchSumsSolution implements Solution {
 
@@ -33,7 +33,7 @@ public class BranchSumsSolution implements Solution {
      **/
     @Override
     public Output<?> solve(Input<?> input) {
-        CustomBinaryTree root = (CustomBinaryTree) input.getInput();
+        BST root = (BST) input.getInput();
         return new Output<>(depthSum(root, -1));
     }
 
@@ -41,13 +41,13 @@ public class BranchSumsSolution implements Solution {
      /**
       *
       * Helper function to recursively calculate sum of depths.
-      * @param node {@link CustomBinaryTree} a Binary tree node
+      * @param node {@link BST} a Binary tree node
       * @param cumulativeSum the cumulative sum of depths updated with every recursive call
       *
       * @return int final sum of depths
       *
       **/
-    public int depthSum(CustomBinaryTree node, int cumulativeSum) {
+    public int depthSum(BST node, int cumulativeSum) {
 
         if(node == null) {
             return 0;

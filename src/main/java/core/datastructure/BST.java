@@ -2,19 +2,19 @@ package core.datastructure;
 
 import java.util.List;
 
-public class CustomBinaryTree {
+public class BST {
 
-    public CustomBinaryTree left;
-    public CustomBinaryTree right;
+    public BST left;
+    public BST right;
     public Integer value;
     public Integer depth;
 
-    public static CustomBinaryTree toBinaryTree(List<Integer> values) {
+    public static BST toBinaryTree(List<Integer> values) {
 
-        return toBinaryTreeHelper(values, new CustomBinaryTree(), 0);
+        return toBinaryTreeHelper(values, new BST(), 0);
     }
 
-    private static CustomBinaryTree toBinaryTreeHelper(List<Integer> values, CustomBinaryTree tree, int currIndex) {
+    private static BST toBinaryTreeHelper(List<Integer> values, BST tree, int currIndex) {
 
 
         if(currIndex < values.size()) {
@@ -22,8 +22,8 @@ public class CustomBinaryTree {
         }
 
         if(!((2 * currIndex) + 1 > values.size() - 1)) {
-            tree.left = new CustomBinaryTree();
-            tree.right= new CustomBinaryTree();
+            tree.left = new BST();
+            tree.right= new BST();
             toBinaryTreeHelper(values, tree.left, (2 * currIndex) + 1);
             toBinaryTreeHelper(values, tree.right, (2 * currIndex) + 2);
         }
@@ -31,11 +31,11 @@ public class CustomBinaryTree {
         return tree;
     }
 
-    public static void printBinaryTree(CustomBinaryTree tree) {
+    public static void printBinaryTree(BST tree) {
         printBinaryTreeHelper(tree, 0);
     }
 
-    public static void printBinaryTreeHelper(CustomBinaryTree root, int space) {
+    public static void printBinaryTreeHelper(BST root, int space) {
         if (root == null)
             return;
 

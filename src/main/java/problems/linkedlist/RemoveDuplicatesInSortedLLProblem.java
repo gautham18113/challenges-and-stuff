@@ -5,7 +5,7 @@ import core.io.Output;
 import core.Problem;
 import core.ProblemInterface;
 import core.TestCase;
-import core.datastructure.SinglyLinkedList;
+import core.datastructure.LL;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,23 +35,23 @@ public class RemoveDuplicatesInSortedLLProblem implements ProblemInterface {
      */
     @Override
     public Problem getProblem() {
-        SinglyLinkedList<Integer> ll = new SinglyLinkedList<>();
+        LL<Integer> ll = new LL<>();
         List<TestCase> testCaseList = Arrays.asList(
             TestCase.builder()
-                .withInput(new Input<>(ll.buildSinglyLinkedList(Arrays.asList(1,1,3,4,4,4,5,6,6))))
-                .withOutput(new Output<>(ll.buildSinglyLinkedList(Arrays.asList(1,3,4,5,6))))
+                .withInput(new Input<>(ll.buildLinkedList(Arrays.asList(1,1,3,4,4,4,5,6,6))))
+                .withOutput(new Output<>(ll.buildLinkedList(Arrays.asList(1,3,4,5,6))))
                 .build(),
             TestCase.builder()
-                .withInput(new Input<>(ll.buildSinglyLinkedList(Arrays.asList(1,1))))
-                .withOutput(new Output<>(ll.buildSinglyLinkedList(Arrays.asList(1))))
+                .withInput(new Input<>(ll.buildLinkedList(Arrays.asList(1,1))))
+                .withOutput(new Output<>(ll.buildLinkedList(Arrays.asList(1))))
                 .build(),
             TestCase.builder()
-                .withInput(new Input<>(ll.buildSinglyLinkedList(Arrays.asList(1))))
-                .withOutput(new Output<>(ll.buildSinglyLinkedList(Arrays.asList(1))))
+                .withInput(new Input<>(ll.buildLinkedList(Arrays.asList(1))))
+                .withOutput(new Output<>(ll.buildLinkedList(Arrays.asList(1))))
                 .build(),
             TestCase.builder()
-                .withInput(new Input<>(ll.buildSinglyLinkedList(Arrays.asList())))
-                .withOutput(new Output<>(ll.buildSinglyLinkedList(Arrays.asList())))
+                .withInput(new Input<>(ll.buildLinkedList(Arrays.asList())))
+                .withOutput(new Output<>(ll.buildLinkedList(Arrays.asList())))
                 .build()
         );
         return Problem.builder().withTestCaseList(testCaseList).build();
