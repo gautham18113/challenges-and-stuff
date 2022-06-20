@@ -65,6 +65,13 @@ public class BSTTest {
     }
 
     @Test
+    public void testPrintBinaryTree() {
+        BST node = new BST(10);
+        insertHelper(node, Arrays.asList(2,15,14,22,1));
+        node.printBinaryTree();
+    }
+
+    @Test
     public void testMultipleOps3(){
 
         BST node = new BST(10);

@@ -16,6 +16,15 @@ public class BST {
         this.value = value;
     }
 
+    public boolean equals(BST compareTo) {
+        return BST.equals(this, compareTo);
+    }
+
+    private static boolean equals(BST compareFrom, BST compareTo) {
+        if(Objects.isNull(compareFrom) && Objects.isNull(compareTo)) return true;
+        return compareFrom.value == compareTo.value && BST.equals(compareFrom.left, compareTo.left) && BST.equals(compareFrom.right, compareTo.right);
+    }
+
     @Override
     public String toString() {
         return String.format("BST(value: %s, left: %s, right: %s)", this.value,
@@ -42,6 +51,44 @@ public class BST {
         }
 
         return tree;
+    }
+
+    public void printBinaryTree() {
+
+        BST tree = this;
+
+        int level = 0;
+
+        printBinaryTreeRecursive(tree, level);
+
+    }
+
+    /*
+     * Algorithm:
+     * Perform an In - order traversal of the binary tree
+     * starting from right most leaf node, recursively print node value
+     */
+    public static void printBinaryTreeRecursive(BST tree, int level) {
+
+        if(tree == null) {
+            return;
+        }
+
+        BST right = tree.right;
+        BST left = tree.left;
+
+        printBinaryTreeRecursive(right, level + 1);
+        printStr(" ", level);
+        System.out.print(tree.value);
+        System.out.println("\n");
+        printBinaryTreeRecursive(left, level + 1);
+
+    }
+
+    private static void printStr(String s, int times) {
+        for(int i = 0; i < times*10; i++) {
+            System.out.print(s);
+        }
     }
 
     public Optional<BST> search(Integer value) {
