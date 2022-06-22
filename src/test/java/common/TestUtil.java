@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions;
 
 public class TestUtil {
 
+    @SuppressWarnings("all")
     public static void runAssertions(
         ProblemInterface problem,
         Solution solution

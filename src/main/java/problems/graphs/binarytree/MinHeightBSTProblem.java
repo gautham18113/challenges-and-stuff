@@ -1,6 +1,5 @@
 package problems.graphs.binarytree;
 
-import java.util.Arrays;
 
 import core.Problem;
 import core.ProblemInterface;
