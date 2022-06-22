@@ -7,6 +7,23 @@ import core.io.Output;
 
 public class MinHeightBSTSolution implements Solution{
 
+    /**
+     * <p>
+     * To minimize the height of the tree, we need to minimize the height of both left
+     * and right sub trees.
+     * </p>
+     * <p>
+     * To do this we can make use of the fact that the input array will be <b> sorted </b>.
+     * </p>
+     * <p>
+     * Since the input array is sorted, the mid point of the array will represent the root element.
+     * The portions of the array to the left and right of the mid point will have the left and right
+     * children in their respective mid points. If we consider the left and right sub array to represent a BST
+     * themselves, then recursion can be used in the left and right halves to recursively construct the entire tree.
+     * </p>
+     * @param input wrapper for int array
+     * @return output wrapper for {@link BST}
+     */
     @Override
     public Output<?> solve(Input<?> input) {
         int[] array = (int[])input.getInput();
@@ -16,8 +33,19 @@ public class MinHeightBSTSolution implements Solution{
         return new Output<>(result);
     }
 
-    /* T O(nlogn) S O(n)
-     * O(nlogn) because BST insert method has n log n complexity
+    /**
+     * <p>
+     * This solution uses the insert method of the {@link BST} to insert the mid value of current
+     * array into the tree. It has a higher time complexity since it uses the insert method of the BST.
+     * </p>
+     * <b>T</b> O(nlogn)
+     * <b>S</b> O(n)
+     * <hr/>
+     * @param array input array
+     * @param tree aggregator {@link BST}
+     * @param left left index of current sub array
+     * @param right right index of current sub array
+     * @return fully constructed {@link BST}
      */
     private BST constructMinHeightBst(int[] array, BST tree, int left, int right) {
 
@@ -38,9 +66,6 @@ public class MinHeightBSTSolution implements Solution{
         return tree;
     }
 
-    /* T O(n) S O(n)
-     * Time complexity reduced because of not using BST insert.
-     */
     @SuppressWarnings("all")
     private BST constructMinHeightBstOptimized(int[] array, BST tree, int left, int right) {
         int mid = left + (right - left ) / 2;
@@ -71,6 +96,18 @@ public class MinHeightBSTSolution implements Solution{
         return tree;
     }
 
+    /**
+     * <p>
+     * This solution does not use the insert method of the {@link BST}. Instead
+     * it recursively constructs the tree while recursing through the sub arrays.
+     * </p>
+     * <b>T</b> O(n) <b>S</b> O(n)
+     * <hr/>
+     * @param array input array
+     * @param left left index of sub array
+     * @param right right index of sub array
+     * @return fully constructed {@link BST}
+     */
     private BST constructMinHeightBstOptimized2(int[] array, int left, int right) {
         int mid = left + (right - left) / 2;
 
