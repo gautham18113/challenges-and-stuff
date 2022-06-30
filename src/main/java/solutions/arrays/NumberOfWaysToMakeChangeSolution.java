@@ -146,7 +146,9 @@ public class NumberOfWaysToMakeChangeSolution implements Solution{
                 if (amount == 0) dpArray[amount] = 1;
 
                 else {
-
+                    /* If an amount can be constructed with any denomination, then update the
+                     * count.
+                     */
                     if(denominationValue <= amount) {
 
                         dpArray[amount] =
