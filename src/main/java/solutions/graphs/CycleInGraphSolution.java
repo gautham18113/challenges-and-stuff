@@ -12,7 +12,8 @@ public class CycleInGraphSolution implements Solution {
     public Output<?> solve(Input<?> input) {
         int[][] matrix = (int[][]) input.getInput();
 
-        boolean cycle = hasCycle(matrix);
+        hasCycle(matrix);
+        boolean cycle = traverseOptimized(matrix);
         return new Output<>(cycle);
     }
 
@@ -62,6 +63,48 @@ public class CycleInGraphSolution implements Solution {
                 stack.add(matrix[curr][i]);
         }
         return false;
+    }
+
+    /**
+     * <b>T</b> O(v + e) <b>S</b> O(v)
+     * @param matrix
+     * @return
+     */
+    private boolean traverseOptimized(int[][] matrix) {
+        boolean[] visited = new boolean[matrix.length];
+        boolean[] inStack = new boolean[matrix.length];
+
+        for(int v = 0; v < matrix.length; v++) {
+            if(visited[v]) continue;
+
+            if(traverseOptimizedUtil(v, matrix, visited, inStack)) return true;
+
+        }
+
+        return false;
+    }
+
+    private boolean traverseOptimizedUtil(int vertex, int[][] matrix, boolean[] visited, boolean[] inStack) {
+
+        /*
+         * If current vertex is already visited, and it is not in the current stack - then it means that
+         * we had traversed this vertex previously and did not find any cycles in it.
+         */
+        if(visited[vertex] && inStack[vertex]) return true;
+        else if(visited[vertex]) return false;
+
+        visited[vertex] = true;
+        inStack[vertex] = true;
+
+        boolean hasCycle = false;
+
+        for(int edge: matrix[vertex]) {
+            hasCycle = traverseOptimizedUtil(edge, matrix, visited, inStack);
+            if(hasCycle) break;
+        }
+        inStack[vertex] = false;
+
+        return hasCycle;
     }
 
 }
