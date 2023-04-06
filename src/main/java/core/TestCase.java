@@ -18,11 +18,11 @@ public class TestCase {
     private TestCase(List<Input<?>> inputs, Output<?> output, Optional<BiFunction<?, ?, Boolean>> compare) {
         this.inputs = inputs;
         this.output = output;
-        this.compare = Optional.of(compare).orElse(null);
+        this.compare = compare;
     }
 
     public Optional<BiFunction<?, ?, Boolean>> getCompare() {
-        return compare;
+        return compare == null ? Optional.empty() : compare;
     }
 
     public List<Input<?>> getInputs() {
@@ -73,7 +73,7 @@ public class TestCase {
         }
 
         public Builder withComparator(BiFunction<?, ?, Boolean> fn) {
-            compare = Optional.of(fn);
+            compare = Optional.ofNullable(fn);
             return this;
         }
 
