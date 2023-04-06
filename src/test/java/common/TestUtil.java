@@ -9,6 +9,7 @@ import core.io.Input;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiFunction;
 
 import org.assertj.core.api.Assertions;
 
@@ -22,7 +23,11 @@ public class TestUtil {
             Object actual = solution.solve(input).getOutput();
             Object expected = test.getOutput().getOutput();
 
-            if (actual instanceof BST && expected instanceof BST) {
+            if (test.getCompare().isPresent()) {
+                BiFunction fn = test.getCompare().get();
+                Boolean result = (Boolean) fn.apply(expected, actual);
+                assert(result);
+            } else if (actual instanceof BST && expected instanceof BST) {
                 Assertions.assertThat(actual.equals(expected));
             } else if (actual instanceof List && expected instanceof  List) {
                 assert(((List<?>) actual).containsAll((List<?>) expected));

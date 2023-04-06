@@ -5,15 +5,24 @@ import core.io.Output;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class TestCase {
 
     private final List<Input<?>> inputs;
     private final Output<?> output;
+    private final Optional<BiFunction<?, ?, Boolean>> compare;
 
-    private TestCase(List<Input<?>> inputs, Output<?> output) {
+    private TestCase(List<Input<?>> inputs, Output<?> output, Optional<BiFunction<?, ?, Boolean>> compare) {
         this.inputs = inputs;
         this.output = output;
+        this.compare = Optional.of(compare).orElse(null);
+    }
+
+    public Optional<BiFunction<?, ?, Boolean>> getCompare() {
+        return compare;
     }
 
     public List<Input<?>> getInputs() {
@@ -29,6 +38,7 @@ public class TestCase {
         private List<Input<?>> inputParameters;
 
         private Output<?> output;
+        private Optional<BiFunction<?, ?, Boolean>> compare;
 
         protected static Builder newInstance() {
             return new Builder();
@@ -62,10 +72,16 @@ public class TestCase {
             return this;
         }
 
+        public Builder withComparator(BiFunction<?, ?, Boolean> fn) {
+            compare = Optional.of(fn);
+            return this;
+        }
+
         public TestCase build() {
             return new TestCase(
                 this.inputParameters,
-                this.output
+                this.output,
+                this.compare
             );
         }
     }
