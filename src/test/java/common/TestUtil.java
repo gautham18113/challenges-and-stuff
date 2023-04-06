@@ -32,24 +32,6 @@ public class TestUtil {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public static void runAssertionsWithComparator(ProblemInterface problem, Solution solution, Comparator comparator) {
-        for (TestCase test : problem.getProblem().getTestCases()) {
-            Input input = test.getInputs().get(0);
-
-            Object actual = solution.solve(input).getOutput();
-            Object expected = test.getOutput().getOutput();
-
-            if (actual instanceof List) {
-                Collections.sort((List) actual, new ListComparator<>());
-                Collections.sort((List) expected, new ListComparator<>());
-            }
-
-            Assertions.assertThat(actual).isEqualTo(expected);
-
-        }
-    }
-
     public static void runAssertionsMultipleParams(ProblemInterface problem, Solution solution) {
         for (TestCase test : problem.getProblem().getTestCases()) {
             Assertions.assertThat(solution.solve(new Input<>(test.getInputs())).getOutput())

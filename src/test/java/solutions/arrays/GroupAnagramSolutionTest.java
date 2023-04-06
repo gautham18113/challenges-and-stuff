@@ -1,7 +1,6 @@
 package solutions.arrays;
 
 import org.junit.jupiter.api.Test;
-import common.ListOfListComparator;
 
 import common.TestUtil;
 import problems.arrays.GroupAnagramProblem;
@@ -12,6 +11,6 @@ public class GroupAnagramSolutionTest {
 
     @Test
     public void test() {
-        TestUtil.runAssertionsWithComparator(problem, solution, new ListOfListComparator<String>());
+        TestUtil.runAssertions(problem, solution);
     }
 }

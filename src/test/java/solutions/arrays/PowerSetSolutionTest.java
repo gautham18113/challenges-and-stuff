@@ -2,7 +2,6 @@ package solutions.arrays;
 
 import org.junit.jupiter.api.Test;
 
-import common.ListOfListComparator;
 import common.TestUtil;
 import problems.arrays.PowerSetProblem;
 
