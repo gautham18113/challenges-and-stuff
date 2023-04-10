@@ -28,9 +28,7 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
         Compare comparator = getCompareMap().get(jsonObj.getComparator());
 
         for (TestCase testCase: testCasesList) {
-            O actual = this.solveProblem(
-                    (I) testCase.getInput(),
-                    (O) testCase.getOutput());
+            O actual = this.solveProblem((I) testCase.getInput());
             O expected = (O) testCase.getOutput();
 
             if (!comparator.equal(expected.getOp(), actual.getOp())) {

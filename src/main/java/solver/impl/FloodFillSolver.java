@@ -15,6 +15,7 @@ import problem.input.impl.FloodFillInput;
 import problem.output.FloodFillOutput;
 import problem.output.ProblemOutput;
 import solver.AbstractSolver;
+import solver.BaseSolver;
 import solver.Solver;
 import solver.SolverOutput;
 
@@ -38,24 +39,23 @@ import java.util.*;
  *     <h1>Output</h1>
  * </div>
  */
-public class FloodFillSolver extends AbstractSolver<FloodFillInput, FloodFillOutput> {
+public class FloodFillSolver extends BaseSolver<FloodFillInput, FloodFillOutput> {
 
     private Parser<TestCases<FloodFillInput, FloodFillOutput>> parser;
-    private String fileName;
-    private Map<String, Compare> compareMap;
 
     @Inject
     public FloodFillSolver(
             @Named("floodFillParser") Parser<TestCases<FloodFillInput, FloodFillOutput>> parser,
             @Named("floodFillProblem") String fileName,
             Map<String, Compare> compareMap){
+        super(parser, fileName, compareMap);
         assert(Objects.nonNull(parser));
         this.parser = parser;
-        this.fileName = fileName;
-        this.compareMap = compareMap;
+
     }
 
-    public FloodFillOutput solveProblem(FloodFillInput input, FloodFillOutput output) {
+    @Override
+    public FloodFillOutput solveProblem(FloodFillInput input) {
 
         int r = input.getR();
         int c = input.getC();
@@ -63,6 +63,7 @@ public class FloodFillSolver extends AbstractSolver<FloodFillInput, FloodFillOut
         Integer[][] image = input.getImage();
 
         bfs(image, replacement, new Coord(r, c));
+
         FloodFillOutput output1 = new FloodFillOutput();
 
         output1.setOp(image);
@@ -110,20 +111,11 @@ public class FloodFillSolver extends AbstractSolver<FloodFillInput, FloodFillOut
         return neighbors;
     }
 
-    protected Parser getParser() {
-        return this.parser;
-    }
-
-    protected String getConfigFile() {
-        return this.fileName;
-    }
-
-    protected Map<String, Compare> getCompareMap() {
-        return this.compareMap;
-    }
-
+    @Override
     protected TestCases<FloodFillInput, FloodFillOutput> getTestCases() {
-        return parser.parse(fileName, new TypeToken<>(){});
+        return parser.parse(
+                getConfigFile(),
+                new TypeToken<>(){});
     }
 
 }

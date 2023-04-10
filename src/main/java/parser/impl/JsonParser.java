@@ -22,8 +22,4 @@ public class JsonParser<T> implements Parser<T> {
         }
         return myJson;
     }
-
-    private TypeToken getToken() {
-        return new TypeToken<>() {};
-    }
 }
