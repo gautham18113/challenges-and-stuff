@@ -2,4 +2,4 @@
 
 # Description
 
-A collection of solved algorithms and data structures problems solved in java.
+A collection of solved algorithms and data structures problem solved in java.
