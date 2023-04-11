@@ -1,14 +1,9 @@
 package solver;
 
-import com.google.common.reflect.TypeToken;
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import model.TestCases;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.ProblemInput;
-import problem.input.impl.FloodFillInput;
-import problem.output.FloodFillOutput;
 import problem.output.ProblemOutput;
 
 import java.util.Map;

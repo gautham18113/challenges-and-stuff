@@ -1,5 +1,6 @@
 package module;
 
+import com.google.gson.reflect.TypeToken;
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import com.google.inject.multibindings.MapBinder;
@@ -11,7 +12,10 @@ import parser.Parser;
 import problem.compare.Compare;
 import problem.compare.impl.ArrayDeepCompare;
 import problem.input.impl.FloodFillInput;
-import problem.output.FloodFillOutput;
+import problem.input.impl.GenericInput;
+import problem.output.impl.GenericOutput;
+import problem.output.impl.GridOutput;
+import solver.impl.FloodFillSolver;
 
 public class AppModule extends AbstractModule {
     @Override
@@ -30,14 +34,28 @@ public class AppModule extends AbstractModule {
     }
 
     private void configureProblems() {
-        // Flood fill
 
-        bind(new TypeLiteral<Parser<TestCases<FloodFillInput, FloodFillOutput>>>(){})
-                .annotatedWith(Names.named("floodFillParser"))
-                .to(new TypeLiteral<JsonParser<TestCases<FloodFillInput, FloodFillOutput>>>(){});
-        bind(String.class)
-                .annotatedWith(Names.named("floodFillProblem"))
-                .toInstance("FloodFillProblem.json");
+        // Flood fill
+        bindProblemModules(
+                new TypeLiteral<Parser<TestCases<FloodFillInput, GridOutput>>>(){},
+                new TypeLiteral<JsonParser<TestCases<FloodFillInput, GridOutput>>>(){},
+                "floodFillParser",
+                "floodFillProblem",
+                "FloodFillProblem.json"
+        );
+
+        bindProblemModules(
+                new TypeLiteral<Parser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>(){},
+                new TypeLiteral<JsonParser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>(){},
+                "noOfIslandParser",
+                "noOfIslandProblem",
+                "FindNumberOfIslands.json"
+        );
+    }
+
+    private void bindProblemModules(TypeLiteral from, TypeLiteral to, String parserName, String problemName, String problemFileName) {
+        bind(from).annotatedWith(Names.named(parserName)).to(to);
+        bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }
 
 }

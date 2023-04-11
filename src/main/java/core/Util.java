@@ -1,5 +1,10 @@
 package core;
 
+import core.datastructure.Coord;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Util {
 
     public static void swap(int idx1, int idx2, int[] arr) {

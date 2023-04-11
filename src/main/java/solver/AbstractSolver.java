@@ -1,13 +1,11 @@
 package solver;
 
-import com.google.common.reflect.TypeToken;
 import model.TestCase;
 import model.TestCases;
 import parser.Parser;
 import problem.compare.Compare;
+import problem.compare.impl.GenericCompare;
 import problem.input.ProblemInput;
-import problem.input.impl.FloodFillInput;
-import problem.output.FloodFillOutput;
 import problem.output.ProblemOutput;
 
 import java.util.ArrayList;
@@ -25,15 +23,16 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
 
         List<TestCase> failedTestCases = new ArrayList<>();
 
-        Compare comparator = getCompareMap().get(jsonObj.getComparator());
+        Compare comparator =
+                getCompareMap().getOrDefault(jsonObj.getComparator(), new GenericCompare());
 
-        for (TestCase testCase: testCasesList) {
+        for (TestCase testCase : testCasesList) {
             O actual = this.solveProblem((I) testCase.getInput());
             O expected = (O) testCase.getOutput();
 
             if (!comparator.equal(expected.getOp(), actual.getOp())) {
                 failedTestCases.add(testCase);
-                assert(comparator.equal(expected.getOp(), actual.getOp()));
+                assert (comparator.equal(expected.getOp(), actual.getOp()));
             }
         }
 
