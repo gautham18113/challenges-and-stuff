@@ -13,6 +13,7 @@ import problem.compare.Compare;
 import problem.compare.impl.ArrayDeepCompare;
 import problem.input.impl.FloodFillInput;
 import problem.input.impl.GenericInput;
+import problem.input.impl.OpenTheLockInput;
 import problem.output.impl.GenericOutput;
 import problem.output.impl.GridOutput;
 import solver.impl.FloodFillSolver;
@@ -37,23 +38,38 @@ public class AppModule extends AbstractModule {
 
         // Flood fill
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<FloodFillInput, GridOutput>>>(){},
-                new TypeLiteral<JsonParser<TestCases<FloodFillInput, GridOutput>>>(){},
+                new TypeLiteral<Parser<TestCases<FloodFillInput, GridOutput>>>() {
+                },
+                new TypeLiteral<JsonParser<TestCases<FloodFillInput, GridOutput>>>() {
+                },
                 "floodFillParser",
                 "floodFillProblem",
                 "FloodFillProblem.json"
         );
 
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>(){},
-                new TypeLiteral<JsonParser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>(){},
+                new TypeLiteral<Parser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>() {
+                },
+                new TypeLiteral<JsonParser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>() {
+                },
                 "noOfIslandParser",
                 "noOfIslandProblem",
                 "FindNumberOfIslands.json"
         );
+
+        bindProblemModules(
+                new TypeLiteral<Parser<TestCases<OpenTheLockInput, GenericOutput<Integer>>>>() {
+                },
+                new TypeLiteral<JsonParser<TestCases<OpenTheLockInput, GenericOutput<Integer>>>>() {
+                },
+                "openTheLockParser",
+                "openTheLockProblem",
+                "OpenTheLock.json"
+        );
     }
 
-    private void bindProblemModules(TypeLiteral from, TypeLiteral to, String parserName, String problemName, String problemFileName) {
+    private void bindProblemModules(TypeLiteral from, TypeLiteral to, String parserName,
+                                    String problemName, String problemFileName) {
         bind(from).annotatedWith(Names.named(parserName)).to(to);
         bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }

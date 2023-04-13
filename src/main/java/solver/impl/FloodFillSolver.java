@@ -45,7 +45,7 @@ public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput> {
 
         GridOutput output1 = new GridOutput();
 
-        output1.setOp(image);
+        output1.setValue(image);
 
         return output1;
 

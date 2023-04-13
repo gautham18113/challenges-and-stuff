@@ -30,9 +30,9 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
             O actual = this.solveProblem((I) testCase.getInput());
             O expected = (O) testCase.getOutput();
 
-            if (!comparator.equal(expected.getOp(), actual.getOp())) {
+            if (!comparator.equal(expected.getValue(), actual.getValue())) {
                 failedTestCases.add(testCase);
-                assert (comparator.equal(expected.getOp(), actual.getOp()));
+                assert (comparator.equal(expected.getValue(), actual.getValue()));
             }
         }
 

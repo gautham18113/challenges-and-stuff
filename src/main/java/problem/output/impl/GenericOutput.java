@@ -7,5 +7,5 @@ import problem.output.ProblemOutput;
 @Getter
 @Setter
 public class GenericOutput<T> implements ProblemOutput<T> {
-    private T op;
+    private T value;
 }

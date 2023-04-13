@@ -2,7 +2,7 @@ package problem.output;
 
 public interface ProblemOutput <T> {
 
-    T getOp();
+    T getValue();
 
-    void setOp(T op);
+    void setValue(T value);
 }

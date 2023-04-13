@@ -7,5 +7,5 @@ import problem.output.ProblemOutput;
 @Getter
 @Setter
 public class GridOutput<T> implements ProblemOutput<T[][]> {
-    T[][] op;
+    T[][] value;
 }

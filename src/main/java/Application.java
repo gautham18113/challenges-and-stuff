@@ -4,6 +4,7 @@ import module.AppModule;
 import solver.Solver;
 import solver.impl.FindNoOfIslandsSolver;
 import solver.impl.FloodFillSolver;
+import solver.impl.OpenTheLockSolver;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +15,8 @@ public class Application {
         Injector injector = Guice.createInjector(new AppModule());
         runSolvers(Arrays.asList(
                 injector.getInstance(FloodFillSolver.class),
-                injector.getInstance(FindNoOfIslandsSolver.class)
+                injector.getInstance(FindNoOfIslandsSolver.class),
+                injector.getInstance(OpenTheLockSolver.class)
         ));
     }
 

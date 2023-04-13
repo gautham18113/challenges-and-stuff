@@ -50,7 +50,7 @@ public class FindNoOfIslandsSolver
 
         GenericOutput output = new GenericOutput();
 
-        output.setOp(islandCount);
+        output.setValue(islandCount);
 
         return output;
     }
