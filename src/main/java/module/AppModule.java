@@ -14,6 +14,7 @@ import problem.compare.impl.ArrayDeepCompare;
 import problem.input.impl.FloodFillInput;
 import problem.input.impl.GenericInput;
 import problem.input.impl.OpenTheLockInput;
+import problem.input.impl.WordLadderInput;
 import problem.output.impl.GenericOutput;
 import problem.output.impl.GridOutput;
 import solver.impl.FloodFillSolver;
@@ -65,6 +66,16 @@ public class AppModule extends AbstractModule {
                 "openTheLockParser",
                 "openTheLockProblem",
                 "OpenTheLock.json"
+        );
+
+        bindProblemModules(
+                new TypeLiteral<Parser<TestCases<WordLadderInput, GenericOutput<Integer>>>>() {
+                },
+                new TypeLiteral<JsonParser<TestCases<WordLadderInput, GenericOutput<Integer>>>>() {
+                },
+                "wordLadderParser",
+                "wordLadderProblem",
+                "WordLadder.json"
         );
     }
 

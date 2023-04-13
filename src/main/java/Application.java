@@ -5,6 +5,7 @@ import solver.Solver;
 import solver.impl.FindNoOfIslandsSolver;
 import solver.impl.FloodFillSolver;
 import solver.impl.OpenTheLockSolver;
+import solver.impl.WordLadderSolver;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,8 @@ public class Application {
         runSolvers(Arrays.asList(
                 injector.getInstance(FloodFillSolver.class),
                 injector.getInstance(FindNoOfIslandsSolver.class),
-                injector.getInstance(OpenTheLockSolver.class)
+                injector.getInstance(OpenTheLockSolver.class),
+                injector.getInstance(WordLadderSolver.class)
         ));
     }
 

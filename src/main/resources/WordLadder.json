@@ -1,0 +1,24 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "from": "cold",
+        "to": "warm",
+        "wordList": ["cold", "gold", "cord", "card", "ward", "warm", "tard", "sold"]
+      },
+      "output": {
+        "value": 4
+      }
+    },
+    {
+      "input": {
+        "from": "fool",
+        "to": "sage",
+        "wordList": ["fool", "pool", "poll", "pole", "pale", "sale", "sage"]
+      },
+      "output": {
+        "value": 4
+      }
+    }
+  ]
+}
