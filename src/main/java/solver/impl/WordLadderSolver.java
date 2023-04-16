@@ -20,7 +20,7 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
     private Parser<TestCases<WordLadderInput, GenericOutput<Integer>>> parser;
     @Inject
     public WordLadderSolver(
-            @Named("wordLadderParser")
+            @Named("jsonParser")
             Parser parser,
             @Named("wordLadderProblem")
             String fileName,

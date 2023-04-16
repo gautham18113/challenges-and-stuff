@@ -2,10 +2,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import module.AppModule;
 import solver.Solver;
-import solver.impl.FindNoOfIslandsSolver;
-import solver.impl.FloodFillSolver;
-import solver.impl.OpenTheLockSolver;
-import solver.impl.WordLadderSolver;
+import solver.impl.*;
 
 import java.util.Arrays;
 import java.util.List;

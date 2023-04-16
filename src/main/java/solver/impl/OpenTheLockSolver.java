@@ -24,7 +24,7 @@ public class OpenTheLockSolver extends BaseSolver<OpenTheLockInput, GenericOutpu
 
     @Inject
     public OpenTheLockSolver(
-            @Named("openTheLockParser")
+            @Named("jsonParser")
             Parser parser,
             @Named("openTheLockProblem")
             String fileName,

@@ -24,7 +24,7 @@ public class FindNoOfIslandsSolver
 
     @Inject
     public FindNoOfIslandsSolver(
-            @Named("noOfIslandParser")
+            @Named("jsonParser")
             Parser parser,
             @Named("noOfIslandProblem") String fileName,
             Map<String, Compare> compareMap

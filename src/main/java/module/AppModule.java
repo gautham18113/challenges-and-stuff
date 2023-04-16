@@ -39,33 +39,33 @@ public class AppModule extends AbstractModule {
 
         // Flood fill
         bindProblemModules(
-                "floodFillParser",
                 "floodFillProblem",
                 "FloodFillProblem.json"
         );
 
         bindProblemModules(
-                "noOfIslandParser",
                 "noOfIslandProblem",
                 "FindNumberOfIslands.json"
         );
 
         bindProblemModules(
-                "openTheLockParser",
                 "openTheLockProblem",
                 "OpenTheLock.json"
         );
 
         bindProblemModules(
-                "wordLadderParser",
+                "wordLadderProblem",
+                "WordLadder.json"
+        );
+        bindProblemModules(
                 "wordLadderProblem",
                 "WordLadder.json"
         );
     }
 
-    private void bindProblemModules(String parserName, String problemName, String problemFileName) {
+    private void bindProblemModules(String problemName, String problemFileName) {
         bind(new TypeLiteral<Parser>() {})
-                .annotatedWith(Names.named(parserName))
+                .annotatedWith(Names.named("jsonParser"))
                 .to(new TypeLiteral<JsonParser>() {});
         bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }
