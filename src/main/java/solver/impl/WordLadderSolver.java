@@ -21,7 +21,7 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
     @Inject
     public WordLadderSolver(
             @Named("wordLadderParser")
-            Parser<TestCases<WordLadderInput, GenericOutput<Integer>>> parser,
+            Parser parser,
             @Named("wordLadderProblem")
             String fileName,
             Map<String, Compare> map) {
@@ -54,13 +54,13 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
 
             for(int queueIdx = 0; queueIdx < queueSize; queueIdx++) {
 
-                String word = queue.pop();
-
-                if(word.equals(to)) {
-                    return level;
-                }
-
                 for(int idx = 0; idx < from.length(); idx++) {
+                    String word = queue.pop();
+
+                    if(word.equals(to)) {
+                        return level;
+                    }
+
                     for(String neighbor: getNeighbors(String.valueOf(word.charAt(idx)))) {
 
                         String newWord = substitute(word, idx, neighbor);

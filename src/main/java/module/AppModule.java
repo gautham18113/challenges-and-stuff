@@ -39,49 +39,34 @@ public class AppModule extends AbstractModule {
 
         // Flood fill
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<FloodFillInput, GridOutput>>>() {
-                },
-                new TypeLiteral<JsonParser<TestCases<FloodFillInput, GridOutput>>>() {
-                },
                 "floodFillParser",
                 "floodFillProblem",
                 "FloodFillProblem.json"
         );
 
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>() {
-                },
-                new TypeLiteral<JsonParser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>>>() {
-                },
                 "noOfIslandParser",
                 "noOfIslandProblem",
                 "FindNumberOfIslands.json"
         );
 
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<OpenTheLockInput, GenericOutput<Integer>>>>() {
-                },
-                new TypeLiteral<JsonParser<TestCases<OpenTheLockInput, GenericOutput<Integer>>>>() {
-                },
                 "openTheLockParser",
                 "openTheLockProblem",
                 "OpenTheLock.json"
         );
 
         bindProblemModules(
-                new TypeLiteral<Parser<TestCases<WordLadderInput, GenericOutput<Integer>>>>() {
-                },
-                new TypeLiteral<JsonParser<TestCases<WordLadderInput, GenericOutput<Integer>>>>() {
-                },
                 "wordLadderParser",
                 "wordLadderProblem",
                 "WordLadder.json"
         );
     }
 
-    private void bindProblemModules(TypeLiteral from, TypeLiteral to, String parserName,
-                                    String problemName, String problemFileName) {
-        bind(from).annotatedWith(Names.named(parserName)).to(to);
+    private void bindProblemModules(String parserName, String problemName, String problemFileName) {
+        bind(new TypeLiteral<Parser>() {})
+                .annotatedWith(Names.named(parserName))
+                .to(new TypeLiteral<JsonParser>() {});
         bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }
 

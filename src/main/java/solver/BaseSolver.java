@@ -12,7 +12,7 @@ import java.util.Objects;
 public class BaseSolver<I extends ProblemInput, O extends ProblemOutput>
         extends AbstractSolver<I, O>{
 
-    private Parser<TestCases<I, O>> parser;
+    protected Parser<TestCases<I, O>> parser;
     private String fileName;
     private Map<String, Compare> compareMap;
 

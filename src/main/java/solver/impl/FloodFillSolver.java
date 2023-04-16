@@ -24,7 +24,7 @@ public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput> {
 
     @Inject
     public FloodFillSolver(
-            @Named("floodFillParser") Parser<TestCases<FloodFillInput, GridOutput>> parser,
+            @Named("floodFillParser") Parser parser,
             @Named("floodFillProblem") String fileName,
             Map<String, Compare> compareMap){
         super(parser, fileName, compareMap);

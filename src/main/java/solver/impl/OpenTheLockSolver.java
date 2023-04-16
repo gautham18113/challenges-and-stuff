@@ -25,7 +25,7 @@ public class OpenTheLockSolver extends BaseSolver<OpenTheLockInput, GenericOutpu
     @Inject
     public OpenTheLockSolver(
             @Named("openTheLockParser")
-            Parser<TestCases<OpenTheLockInput, GenericOutput<Integer>>> parser,
+            Parser parser,
             @Named("openTheLockProblem")
             String fileName,
             Map<String, Compare> compareMap) {

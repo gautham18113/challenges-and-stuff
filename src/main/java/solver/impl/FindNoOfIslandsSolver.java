@@ -25,7 +25,7 @@ public class FindNoOfIslandsSolver
     @Inject
     public FindNoOfIslandsSolver(
             @Named("noOfIslandParser")
-            Parser<TestCases<GenericInput<Integer[][]>, GenericOutput<Integer>>> parser,
+            Parser parser,
             @Named("noOfIslandProblem") String fileName,
             Map<String, Compare> compareMap
     ) {
