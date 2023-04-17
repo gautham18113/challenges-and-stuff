@@ -61,6 +61,10 @@ public class AppModule extends AbstractModule {
                 "wordLadderProblem",
                 "WordLadder.json"
         );
+        bindProblemModules(
+                "slidingPuzzleProblem",
+                "SlidingPuzzle.json"
+        );
     }
 
     private void bindProblemModules(String problemName, String problemFileName) {
