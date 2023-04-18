@@ -36,23 +36,18 @@ public class AppModule extends AbstractModule {
     }
 
     private void configureProblems() {
-
-        // Flood fill
         bindProblemModules(
                 "floodFillProblem",
                 "FloodFillProblem.json"
         );
-
         bindProblemModules(
                 "noOfIslandProblem",
                 "FindNumberOfIslands.json"
         );
-
         bindProblemModules(
                 "openTheLockProblem",
                 "OpenTheLock.json"
         );
-
         bindProblemModules(
                 "wordLadderProblem",
                 "WordLadder.json"
@@ -65,12 +60,18 @@ public class AppModule extends AbstractModule {
                 "slidingPuzzleProblem",
                 "SlidingPuzzle.json"
         );
+        bindProblemModules(
+                "reconstructingSequenceProblem",
+                "ReconstructingSequence.json"
+        );
     }
 
     private void bindProblemModules(String problemName, String problemFileName) {
-        bind(new TypeLiteral<Parser>() {})
+        bind(new TypeLiteral<Parser>() {
+        })
                 .annotatedWith(Names.named("jsonParser"))
-                .to(new TypeLiteral<JsonParser>() {});
+                .to(new TypeLiteral<JsonParser>() {
+                });
         bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }
 
