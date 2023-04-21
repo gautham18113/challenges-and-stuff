@@ -45,6 +45,11 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
         Deque<String> queue = new ArrayDeque<>();
         queue.add(from);
         Set<String> visited = new HashSet<>();
+        Set<String> uniqueLetters = wordLadder.stream()
+                .map(e -> Arrays.stream(e.split("")).collect(Collectors.toList()))
+                .flatMap(List::stream)
+                .map(String::valueOf)
+                .collect(Collectors.toSet());
 
         int level = 0;
 
@@ -53,15 +58,15 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
             int queueSize = queue.size();
 
             for(int queueIdx = 0; queueIdx < queueSize; queueIdx++) {
+                String word = queue.pop();
 
                 for(int idx = 0; idx < from.length(); idx++) {
-                    String word = queue.pop();
 
                     if(word.equals(to)) {
                         return level;
                     }
 
-                    for(String neighbor: getNeighbors(String.valueOf(word.charAt(idx)))) {
+                    for(String neighbor: getNeighbors(String.valueOf(word.charAt(idx)), uniqueLetters)) {
 
                         String newWord = substitute(word, idx, neighbor);
 
@@ -71,14 +76,7 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
 
                         visited.add(newWord);
 
-                        int finalIdx = idx;
-                        List<Boolean> wordAtIndexInDictionary = wordLadder
-                                .stream()
-                                .map(s -> substringEquals(s, newWord, 0, finalIdx))
-                                .filter(b -> b)
-                                .collect(Collectors.toList());
-
-                        if (wordAtIndexInDictionary.size() > 0) {
+                        if (wordLadder.contains(newWord)) {
                             queue.add(newWord);
                         }
                     }
@@ -103,15 +101,13 @@ public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<
         return compareFromSubstring.equals(compareToSubstring);
     }
 
-    private List<String> getNeighbors(String c) {
+    private List<String> getNeighbors(String c, Set<String> letters) {
         List<String> neighbors = new ArrayList<>();
-
-        // ASCII of a = 97, z = 122
-        for(int i=97; i<=122; i++) {
-            if(String.valueOf((char) i).equals(c)) {
+        for(String letter: letters) {
+            if(letter.equals(c)) {
                 continue;
             }
-            neighbors.add(String.valueOf((char) i));
+            neighbors.add(letter);
         }
         return neighbors;
     }

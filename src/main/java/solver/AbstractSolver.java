@@ -31,11 +31,15 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
             O expected = (O) testCase.getOutput();
 
             if (!comparator.equal(expected.getValue(), actual.getValue())) {
+                System.out.println(String.format("test case: %s", testCase));
+                System.out.println(String.format("expected = %s , actual = %s", expected.getValue(), actual.getValue()));
                 failedTestCases.add(testCase);
-                assert (comparator.equal(expected.getValue(), actual.getValue()));
             }
         }
 
+        if (failedTestCases.size() > 0) {
+            throw new AssertionError(String.format("Some testcases failed: %s", failedTestCases));
+        }
         return SolverOutput.builder().failedTestCases(failedTestCases).build();
     }
 

@@ -3,7 +3,6 @@ package solver.impl;
 import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import core.algorithm.TopologicalSortKahn;
 import model.TestCases;
 import parser.Parser;
 import problem.compare.Compare;
@@ -11,10 +10,11 @@ import problem.input.impl.ReconstructingSequenceInput;
 import problem.output.impl.GenericOutput;
 import solver.BaseSolver;
 
-import java.sql.Array;
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * https://leetcode.com/problems/sequence-reconstruction/
+ */
 public class ReconstructingSequenceSolver
         extends BaseSolver<ReconstructingSequenceInput, GenericOutput<Boolean>> {
 
@@ -39,12 +39,11 @@ public class ReconstructingSequenceSolver
 
         // topological sort
 
-        List<Integer> topologicalSorted = new TopologicalSortKahn<>(subsequenceMap).sort();
+        List<Integer> topologicalSorted = topoSort(subsequenceMap);
 
         // verify
 
-        Boolean result = Optional.ofNullable(topologicalSorted).orElse(Collections.emptyList())
-                .equals(original);
+        Boolean result = List.of(original).equals(topologicalSorted);
 
         GenericOutput output = new GenericOutput();
 
@@ -56,23 +55,91 @@ public class ReconstructingSequenceSolver
     private Map<Integer, List<Integer>> constructGraphFromSubsequence(Integer[][] subsequences) {
         Map<Integer, List<Integer>> subseqenceMap = new HashMap<>();
 
-        for(Integer[] sequence: subsequences) {
-            for(int i = 0; i<sequence.length; i++) {
-                if (i == sequence.length - 1) {
-                    if (!subseqenceMap.containsKey(sequence[i])) {
-                        subseqenceMap.put(sequence[i], new ArrayList<>());
+        for (Integer[] subsequence : subsequences) {
+            for (int i = 0; i < subsequence.length; i++) {
+                // add element at end of list to map, and have empty array list as it's value
+                // if it does not exist.
+                if (i == subsequence.length - 1) {
+                    if (!subseqenceMap.containsKey(subsequence[i])) {
+                        subseqenceMap.put(subsequence[i], new ArrayList<>());
                     }
+                    continue;
                 }
-                List<Integer> neighbors = subseqenceMap.getOrDefault(sequence[i], new ArrayList<>());
-                if (!neighbors.contains(sequence[i])) {
-                    neighbors.add(sequence[i]);
+                // add new graph vertex if it does not exist
+                if (!subseqenceMap.containsKey(subsequence[i])) {
+                    subseqenceMap.put(subsequence[i], new ArrayList<>());
+                }
+                // add edge to vertex
+                List<Integer> neighbors = subseqenceMap.get(subsequence[i]);
+                if (!neighbors.contains(subsequence[i + 1])) {
+                    neighbors.add(subsequence[i + 1]);
                 }
             }
         }
 
         return subseqenceMap;
     }
+
+    private List<Integer> topoSort(Map<Integer, List<Integer>> graph) {
+        Map<Integer, Integer> inEdgeMap = new HashMap<>();
+
+        // Populate in-edge map
+        graph.forEach((k, v) -> {
+            // Add unvisited vertex to map
+            if (!inEdgeMap.containsKey(k)) {
+                inEdgeMap.put(k, 0);
+            }
+            for (Integer neighbor : v) {
+                // Add unvisited neighbor to map
+                if (!inEdgeMap.containsKey(neighbor)) {
+                    inEdgeMap.put(neighbor, 0);
+                }
+                // increase in-edge count of neighbor
+                inEdgeMap.put(neighbor, inEdgeMap.get(neighbor) + 1);
+            }
+        });
+
+        // Add vertex with 0 in-edges to queue
+        Deque<Integer> queue = new ArrayDeque<>();
+        inEdgeMap.forEach((k, v) -> {
+            if (v == 0) {
+                queue.add(k);
+            }
+        });
+
+        // Array to store topologically sorted vertices
+        List<Integer> toposorted = new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+
+            // If queue size is greater than one, then there is more than
+            // one way to construct the topological sorted array. Hence, the
+            // sequence is not unique.
+            if (queue.size() > 1) {
+                return null;
+            }
+
+            Integer current = queue.pop();
+            toposorted.add(current);
+
+            // Reduce in-edge count of neighbor of current vertex by 1
+            for (Integer neighbor : graph.get(current)) {
+                int neighborInEdgeCount = inEdgeMap.get(neighbor);
+
+                inEdgeMap.put(neighbor, neighborInEdgeCount - 1);
+
+                if (neighborInEdgeCount - 1 == 0) {
+                    queue.add(neighbor);
+                }
+            }
+
+        }
+
+        return toposorted.size() == graph.size() ? toposorted : null;
+    }
+
     public TestCases<ReconstructingSequenceInput, GenericOutput<Boolean>> getTestCases() {
-        return parser.parse(getConfigFile(), new TypeToken<>() {});
+        return parser.parse(getConfigFile(), new TypeToken<>() {
+        });
     }
 }

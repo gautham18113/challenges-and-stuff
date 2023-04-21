@@ -80,21 +80,15 @@ public class SlidingPuzzleSolver
                     // Serialize
                     String newState = serialize(currentStateDeser);
 
-                    if (newState.equals(expectedState)) {
-                        return level;
-                    }
-
                     // Enqueue new state
-                    queue.push(newState);
+                    queue.add(newState);
 
                     // un-swap
                     temp = currentStateDeser[neiRow][neiCol];
                     currentStateDeser[neiRow][neiCol] = currentStateDeser[curRow][curCol];
                     currentStateDeser[curRow][curCol] = temp;
-
                 }
             }
-
             level++;
         }
 

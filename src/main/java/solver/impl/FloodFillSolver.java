@@ -18,9 +18,7 @@ import java.util.*;
 /**
  * https://leetcode.com/problems/flood-fill/
  */
-public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput> {
-
-    private Parser<TestCases<FloodFillInput, GridOutput>> parser;
+public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput<Integer>> {
 
     @Inject
     public FloodFillSolver(
@@ -91,10 +89,8 @@ public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput> {
     }
 
     @Override
-    protected TestCases<FloodFillInput, GridOutput> getTestCases() {
-        return parser.parse(
-                getConfigFile(),
-                new TypeToken<>(){});
+    protected TestCases getTestCases() {
+        return parser.parse(getConfigFile(), new TypeToken<>(){});
     }
 
 }
