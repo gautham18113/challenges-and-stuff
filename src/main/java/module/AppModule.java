@@ -10,6 +10,9 @@ import parser.Parser;
 import problem.compare.Compare;
 import problem.compare.impl.ArrayDeepCompare;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class AppModule extends AbstractModule {
     @Override
@@ -28,46 +31,26 @@ public class AppModule extends AbstractModule {
     }
 
     private void configureProblems() {
-        bindProblemModules(
-                "floodFillProblem",
-                "FloodFillProblem.json"
-        );
-        bindProblemModules(
-                "noOfIslandProblem",
-                "FindNumberOfIslands.json"
-        );
-        bindProblemModules(
-                "openTheLockProblem",
-                "OpenTheLock.json"
-        );
-        bindProblemModules(
-                "wordLadderProblem",
-                "WordLadder.json"
-        );
-        bindProblemModules(
-                "wordLadderProblem",
-                "WordLadder.json"
-        );
-        bindProblemModules(
-                "slidingPuzzleProblem",
-                "SlidingPuzzle.json"
-        );
-        bindProblemModules(
-                "reconstructingSequenceProblem",
-                "ReconstructingSequence.json"
-        );
-        bindProblemModules(
-                "minimumTimeTaskSchedulingProblem",
-                "MinimumTimeTaskScheduling.json"
-        );
+        final Map<String, String> problemNameMap = new HashMap<>() {{
+            put("floodFillProblem", "FloodFillProblem.json");
+            put("noOfIslandProblem", "FindNumberOfIslands.json");
+            put("openTheLockProblem", "OpenTheLock.json");
+            put("wordLadderProblem", "WordLadder.json");
+            put("slidingPuzzleProblem", "SlidingPuzzle.json");
+            put("reconstructingSequenceProblem", "ReconstructingSequence.json");
+            put("minimumTimeTaskSchedulingProblem", "MinimumTimeTaskScheduling.json");
+            put("courseScheduleProblem", "CourseSchedule.json");
+        }};
+
+        problemNameMap.entrySet()
+                .forEach((entry) -> bindProblemModules(entry.getKey(), entry.getValue()));
     }
 
     private void bindProblemModules(String problemName, String problemFileName) {
         bind(new TypeLiteral<Parser>() {
         })
                 .annotatedWith(Names.named("jsonParser"))
-                .to(new TypeLiteral<JsonParser>() {
-                });
+                .to(new TypeLiteral<JsonParser>() {});
         bind(String.class).annotatedWith(Names.named(problemName)).toInstance(problemFileName);
     }
 
