@@ -1,23 +1,15 @@
 package module;
 
-import com.google.gson.reflect.TypeToken;
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import com.google.inject.multibindings.MapBinder;
 import com.google.inject.name.Names;
 import constants.AppConstants;
-import model.TestCases;
 import parser.impl.JsonParser;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.compare.impl.ArrayDeepCompare;
-import problem.input.impl.FloodFillInput;
-import problem.input.impl.GenericInput;
-import problem.input.impl.OpenTheLockInput;
-import problem.input.impl.WordLadderInput;
-import problem.output.impl.GenericOutput;
-import problem.output.impl.GridOutput;
-import solver.impl.FloodFillSolver;
+
 
 public class AppModule extends AbstractModule {
     @Override
@@ -63,6 +55,10 @@ public class AppModule extends AbstractModule {
         bindProblemModules(
                 "reconstructingSequenceProblem",
                 "ReconstructingSequence.json"
+        );
+        bindProblemModules(
+                "minimumTimeTaskSchedulingProblem",
+                "MinimumTimeTaskScheduling.json"
         );
     }
 

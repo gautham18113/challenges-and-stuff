@@ -17,7 +17,8 @@ public class Application {
                 injector.getInstance(OpenTheLockSolver.class),
                 injector.getInstance(WordLadderSolver.class),
                 injector.getInstance(SlidingPuzzleSolver.class),
-                injector.getInstance(ReconstructingSequenceSolver.class)
+                injector.getInstance(ReconstructingSequenceSolver.class),
+                injector.getInstance(MinimumTimeTaskSchedulingSolver.class)
         ));
     }
 

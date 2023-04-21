@@ -1,0 +1,34 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "tasks": ["a", "b", "c", "d"],
+        "times": [1, 1, 2, 1],
+        "requirements": [["a", "b"], ["c", "b"], ["b", "d"]]
+      },
+      "output": {
+        "value": 4
+      }
+    },
+    {
+      "input": {
+        "tasks": ["brad", "cad", "dag", "ethereum", "forget", "aggregate"],
+        "times": [20, 190, 2930, 2375, 123, 5623749],
+        "requirements": [["forget", "ethereum"], ["ethereum", "dag"], ["dag", "cad"], ["cad", "brad"], ["brad", "aggregate"]]
+      },
+      "output": {
+        "value": 5629387
+      }
+    },
+    {
+      "input": {
+        "tasks": ["abbreviate", "bricks", "cardinals", "dextrous", "fibre", "green", "height"],
+        "times": [1, 1, 1, 1, 1, 100, 1],
+        "requirements": [["abbreviate", "bricks"], ["cardinals", "bricks"], ["dextrous", "bricks"], ["bricks", "fibre"], ["green", "fibre"]]
+      },
+      "output": {
+        "value": 101
+      }
+    }
+  ]
+}
