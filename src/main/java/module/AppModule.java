@@ -40,6 +40,7 @@ public class AppModule extends AbstractModule {
             put("reconstructingSequenceProblem", "ReconstructingSequence.json");
             put("minimumTimeTaskSchedulingProblem", "MinimumTimeTaskScheduling.json");
             put("courseScheduleProblem", "CourseSchedule.json");
+            put("mergeKSortedListsProblem", "MergeKSortedLists.json");
         }};
 
         problemNameMap.entrySet()

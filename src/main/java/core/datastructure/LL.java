@@ -7,6 +7,21 @@ public class LL<T>{
     public LL<T> next;
     public T  value;
 
+    public LL(List<T> items) {
+        LL<T> current = buildLinkedList(items);
+        this.value = current.value;
+        this.next = current.next;
+    }
+
+    public LL(T value) {
+       this.value = value;
+    }
+
+    private LL() {
+        this.value = null;
+        this.next = null;
+    }
+
     /**
      *
      * Compares every element in the current linked list to
@@ -52,11 +67,10 @@ public class LL<T>{
        LL<T> root = new LL<>();
        LL<T> curr = root;
        for(T item: items) {
-           curr.value = item;
-           curr.next = new LL<>();
+           curr.next = new LL<>(item);
            curr = curr.next;
        }
-       return root;
+       return root.next;
     }
 
 }

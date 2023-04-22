@@ -12,6 +12,7 @@ public class Application {
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new AppModule());
         runSolvers(Arrays.asList(
+                // Graphs
                 injector.getInstance(FloodFillSolver.class),
                 injector.getInstance(FindNoOfIslandsSolver.class),
                 injector.getInstance(OpenTheLockSolver.class),
@@ -19,7 +20,9 @@ public class Application {
                 injector.getInstance(SlidingPuzzleSolver.class),
                 injector.getInstance(ReconstructingSequenceSolver.class),
                 injector.getInstance(MinimumTimeTaskSchedulingSolver.class),
-                injector.getInstance(CourseScheduleSolver.class)
+                injector.getInstance(CourseScheduleSolver.class),
+                // Heap
+                injector.getInstance(MergeKSortedListsSolver.class)
         ));
     }
 
