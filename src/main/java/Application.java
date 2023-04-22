@@ -22,7 +22,8 @@ public class Application {
                 injector.getInstance(MinimumTimeTaskSchedulingSolver.class),
                 injector.getInstance(CourseScheduleSolver.class),
                 // Heap
-                injector.getInstance(MergeKSortedListsSolver.class)
+                injector.getInstance(MergeKSortedListsSolver.class),
+                injector.getInstance(KthSmallestInSortedMatrixSolver.class)
         ));
     }
 
