@@ -1,0 +1,12 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "value": ["wrt","wrf","er","ett","rftt"]
+      },
+      "output":{
+        "value": "wertf"
+      }
+    }
+  ]
+}

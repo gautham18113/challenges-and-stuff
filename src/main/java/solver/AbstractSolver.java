@@ -31,8 +31,10 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
             O expected = (O) testCase.getOutput();
 
             if (!comparator.equal(expected.getValue(), actual.getValue())) {
-                System.out.println(String.format("test case: %s", testCase));
-                System.out.println(String.format("expected = %s , actual = %s", expected.getValue(), actual.getValue()));
+                System.out.println("Test case failed:");
+                System.out.printf("test case: %s%n", testCase);
+                System.out.printf("expected = %s , actual = %s%n", expected.getValue(),
+                        actual.getValue());
                 failedTestCases.add(testCase);
             }
         }
