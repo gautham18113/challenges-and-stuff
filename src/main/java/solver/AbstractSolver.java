@@ -33,8 +33,8 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
             if (!comparator.equal(expected.getValue(), actual.getValue())) {
                 System.out.println("Test case failed:");
                 System.out.printf("test case: %s%n", testCase);
-                System.out.printf("expected = %s , actual = %s%n", expected.getValue(),
-                        actual.getValue());
+                System.out.printf("expected = %s , actual = %s%n", expected,
+                        actual);
                 failedTestCases.add(testCase);
             }
         }

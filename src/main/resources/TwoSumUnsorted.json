@@ -1,0 +1,14 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "array": [1,-20,-3,30,5,4],
+        "target": 7
+      },
+      "output": {
+        "value": [1,4]
+      }
+    }
+  ],
+  "comparator": "ARRAY_POSITIONAL_COMPARE"
+}

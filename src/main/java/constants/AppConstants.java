@@ -6,5 +6,6 @@ public class AppConstants {
 
     public enum CompareEnum {
         ARRAY_DEEP_COMPARE,
+        ARRAY_POSITIONAL_COMPARE,
     }
 }

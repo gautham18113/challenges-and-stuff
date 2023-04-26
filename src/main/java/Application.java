@@ -12,17 +12,18 @@ public class Application {
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new AppModule());
         runSolvers(Arrays.asList(
-                injector.getInstance(FloodFillSolver.class),
-                injector.getInstance(FindNoOfIslandsSolver.class),
-                injector.getInstance(OpenTheLockSolver.class),
-                injector.getInstance(WordLadderSolver.class),
-                injector.getInstance(SlidingPuzzleSolver.class),
-                injector.getInstance(ReconstructingSequenceSolver.class),
-                injector.getInstance(MinimumTimeTaskSchedulingSolver.class),
-                injector.getInstance(CourseScheduleSolver.class),
-                injector.getInstance(MergeKSortedListsSolver.class),
-                injector.getInstance(KthSmallestInSortedMatrixSolver.class),
-                injector.getInstance(AlienDictionarySolver.class)
+//                injector.getInstance(FloodFillSolver.class),
+//                injector.getInstance(FindNoOfIslandsSolver.class),
+//                injector.getInstance(OpenTheLockSolver.class),
+//                injector.getInstance(WordLadderSolver.class),
+//                injector.getInstance(SlidingPuzzleSolver.class),
+//                injector.getInstance(ReconstructingSequenceSolver.class),
+//                injector.getInstance(MinimumTimeTaskSchedulingSolver.class),
+//                injector.getInstance(CourseScheduleSolver.class),
+//                injector.getInstance(MergeKSortedListsSolver.class),
+//                injector.getInstance(KthSmallestInSortedMatrixSolver.class),
+//                injector.getInstance(AlienDictionarySolver.class),
+                injector.getInstance(TwoSumUnsortedSolver.class)
         ));
     }
 
