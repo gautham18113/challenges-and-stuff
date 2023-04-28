@@ -1,4 +1,4 @@
-package solver.impl;
+package solver.impl.graph;
 
 
 import com.google.common.reflect.TypeToken;

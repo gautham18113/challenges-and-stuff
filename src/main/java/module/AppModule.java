@@ -8,6 +8,7 @@ import constants.AppConstants;
 import parser.impl.JsonParser;
 import parser.Parser;
 import problem.compare.Compare;
+import problem.compare.impl.ArrayCompareNonPositional;
 import problem.compare.impl.ArrayComparePositional;
 import problem.compare.impl.ArrayDeepCompare;
 
@@ -31,6 +32,8 @@ public class AppModule extends AbstractModule {
                 .toInstance(new ArrayDeepCompare());
         compareMapBinder.addBinding(AppConstants.CompareEnum.ARRAY_POSITIONAL_COMPARE.toString())
                 .toInstance(new ArrayComparePositional());
+        compareMapBinder.addBinding(AppConstants.CompareEnum.ARRAY_NON_POSITIONAL_COMPARE.toString())
+                .toInstance(new ArrayCompareNonPositional());
     }
 
     private void configureProblems() {
@@ -47,6 +50,7 @@ public class AppModule extends AbstractModule {
             put("kthSmallestInSortedMatrixProblem", "KthSmallestInSortedMatrix.json");
             put("alienDictionaryProblem","AlienDictionary.json");
             put("twoSumUnsortedProblem","TwoSumUnsorted.json");
+            put("knapsackWeightOnlyProblem","KnapsackWeightOnly.json");
         }};
 
         problemNameMap.entrySet()

@@ -47,6 +47,7 @@ public class TwoSumUnsortedSolver
             runningSum += array.get(ptr);
             if (prefixSum.containsKey(runningSum - target)) {
                 GenericOutput<Integer[]> output = new GenericOutput<>();
+                // problem asks for end index exclusive, so ptr + 1
                 output.setValue(new Integer[]{prefixSum.get(runningSum - target), ptr + 1});
                 return output;
             }

@@ -1,4 +1,4 @@
-package solver.impl;
+package solver.impl.priorityqueue;
 
 import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
