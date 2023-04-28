@@ -1,0 +1,22 @@
+{
+  "testCases": [
+    {
+      "input":{
+        "coins": [1,2,5],
+        "target": 11
+      },
+      "output": {
+        "value": 3
+      }
+    },
+    {
+      "input":{
+        "coins": [3],
+        "target": 1
+      },
+      "output": {
+        "value": -1
+      }
+    }
+  ]
+}

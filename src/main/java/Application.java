@@ -40,7 +40,9 @@ public class Application {
                 injector.getInstance(KnapsackWeightOnlyBottomUpSolver.class),
                 injector.getInstance(PartitionTwoEqualSumSubsetsTopDownSolver.class),
                 injector.getInstance(TriangleTopDownSolver.class),
-                injector.getInstance(TriangleBottomUpSolver.class)
+                injector.getInstance(TriangleBottomUpSolver.class),
+                injector.getInstance(CoinChangeTopDownSolver.class),
+                injector.getInstance(CoinChangeBottomUpSolver.class)
         ));
     }
 

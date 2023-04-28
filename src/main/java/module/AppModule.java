@@ -53,6 +53,7 @@ public class AppModule extends AbstractModule {
             put("knapsackWeightOnlyProblem","KnapsackWeightOnly.json");
             put("partitionTwoEqualSumSubsetsProblem","PartitionTwoEqualSumSubsets.json");
             put("triangleProblem", "Triangle.json");
+            put("coinChangeProblem", "CoinChange.json");
         }};
 
         problemNameMap.entrySet()
