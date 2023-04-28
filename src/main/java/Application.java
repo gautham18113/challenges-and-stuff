@@ -42,7 +42,9 @@ public class Application {
                 injector.getInstance(TriangleTopDownSolver.class),
                 injector.getInstance(TriangleBottomUpSolver.class),
                 injector.getInstance(CoinChangeTopDownSolver.class),
-                injector.getInstance(CoinChangeBottomUpSolver.class)
+                injector.getInstance(CoinChangeBottomUpSolver.class),
+                injector.getInstance(NumWaysToMakeChangeTopDownSolver.class),
+                injector.getInstance(NumWaysToMakeChangeBottomUpSolver.class)
         ));
     }
 
