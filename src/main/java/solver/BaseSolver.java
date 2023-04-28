@@ -9,7 +9,7 @@ import problem.output.ProblemOutput;
 import java.util.Map;
 import java.util.Objects;
 
-public class BaseSolver<I extends ProblemInput, O extends ProblemOutput>
+public abstract class BaseSolver<I extends ProblemInput, O extends ProblemOutput>
         extends AbstractSolver<I, O>{
 
     protected Parser<TestCases<I, O>> parser;
@@ -39,12 +39,7 @@ public class BaseSolver<I extends ProblemInput, O extends ProblemOutput>
 
     // This needs to be overridden by the child class
     // to infer the correct type to be rendered.
-    protected TestCases<I, O> getTestCases() {
-        return null;
-    }
+    protected abstract TestCases<I, O> getTestCases();
 
-    @Override
-    public O solveProblem(I input) {
-        return null;
-    }
+    public abstract O solveProblem(I input);
 }
