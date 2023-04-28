@@ -34,3 +34,9 @@ Steps to solve a DP problem:
     - find the duplicate subtrees
 - bottom-up (if you want to)
     - optional space optimization
+
+## Examples
+
+- Knapsack problems
+  - [weight only knapsack](https://github.com/gautham18113/AlgorithmsJava/blob/df9f79a56f9a8eda25d97d75bdc4830872ac75e4/src/main/java/solver/impl/dp/KnapsackWeightOnlyBottomUpSolver.java#L18-L18)
+  - [partition to equal subset sum]()

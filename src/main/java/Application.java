@@ -7,6 +7,7 @@ import solver.impl.bfs.OpenTheLockSolver;
 import solver.impl.bfs.SlidingPuzzleSolver;
 import solver.impl.dp.KnapsackWeightOnlyBottomUpSolver;
 import solver.impl.dp.KnapsackWeightOnlyTopDownSolver;
+import solver.impl.dp.PartitionTwoEqualSumSubsetsTopDownSolver;
 import solver.impl.graph.FindNoOfIslandsSolver;
 import solver.impl.graph.FloodFillSolver;
 import solver.impl.priorityqueue.KthSmallestInSortedMatrixSolver;
@@ -38,7 +39,8 @@ public class Application {
                 injector.getInstance(AlienDictionarySolver.class),
                 injector.getInstance(TwoSumUnsortedSolver.class),
                 injector.getInstance(KnapsackWeightOnlyTopDownSolver.class),
-                injector.getInstance(KnapsackWeightOnlyBottomUpSolver.class)
+                injector.getInstance(KnapsackWeightOnlyBottomUpSolver.class),
+                injector.getInstance(PartitionTwoEqualSumSubsetsTopDownSolver.class)
         ));
     }
 

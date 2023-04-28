@@ -1,0 +1,27 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "value": [1,5,11,5]
+      },
+      "output": {
+        "value": true
+      }
+    },
+    { "input": {
+      "value": [1,2,3,5]
+    },
+      "output": {
+        "value": false
+      }
+    },
+    {
+      "input": {
+        "value": [1,6,6,11]
+      },
+      "output": {
+        "value": true
+      }
+    }
+  ]
+}

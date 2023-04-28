@@ -51,6 +51,7 @@ public class AppModule extends AbstractModule {
             put("alienDictionaryProblem","AlienDictionary.json");
             put("twoSumUnsortedProblem","TwoSumUnsorted.json");
             put("knapsackWeightOnlyProblem","KnapsackWeightOnly.json");
+            put("partitionTwoEqualSumSubsetsProblem","PartitionTwoEqualSumSubsets.json");
         }};
 
         problemNameMap.entrySet()
