@@ -20,9 +20,9 @@ is usually done in a tabular form.
 
 ## Steps to work through a DP problem
 
-We can see from this example the top-down and bottom-up are essentially equivalent.
-
-Remember: DP = DFS + pruning + memoization.
+```
+DP = DFS + pruning + memoization
+```
 
 Steps to solve a DP problem:
 
@@ -35,8 +35,14 @@ Steps to solve a DP problem:
 - bottom-up (if you want to)
     - optional space optimization
 
-## Examples
+## Classification and Examples 
 
 - Knapsack problems
   - [weight only knapsack](https://github.com/gautham18113/AlgorithmsJava/blob/df9f79a56f9a8eda25d97d75bdc4830872ac75e4/src/main/java/solver/impl/dp/KnapsackWeightOnlyBottomUpSolver.java#L18-L18)
-  - [partition to equal subset sum]()
+  - [partition to equal subset sum](https://github.com/gautham18113/AlgorithmsJava/blob/f1f3a9365c7d1ee5ae1fa9c1903105fe69abb018/src/main/java/solver/impl/dp/PartitionTwoEqualSumSubsetsTopDownSolver.java#L22-L22)
+- Coin Change
+- Dynamic number of sub problems
+- Interval
+- Two sequences
+- 0-1 Knapsack
+- Bitmask
