@@ -56,6 +56,7 @@ public class AppModule extends AbstractModule {
             put("coinChangeProblem", "CoinChange.json");
             put("numWaysToMakeChangeProblem", "NumWaysToMakeChange.json");
             put("LISProblem", "LIS.json");
+            put("longestDivisibleSubsetProblem", "LongestDivisibleSubset.json");
         }};
 
         problemNameMap.entrySet()
