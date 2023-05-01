@@ -1,0 +1,60 @@
+{
+  "testCases":[
+    {
+      "input": {
+        "value": [1,2,4,3]
+      },
+      "output": {
+        "value": 3
+      }
+    },
+    {
+      "input": {
+        "value": [50, 3, 10, 7, 40, 80]
+      },
+      "output": {
+        "value": 4
+      }
+    },
+    {
+      "input": {
+        "value": [10, 9, 2, 5, 3, 7, 101, 18]
+      },
+      "output": {
+        "value": 4
+      }
+    },
+    {
+      "input": {
+        "value": [10,22,9,33,21,50,41,60,80]
+      },
+      "output": {
+        "value": 6
+      }
+    },
+    {
+      "input": {
+        "value": [5,46,85,26,1,5,78,45,122,56,47,26]
+      },
+      "output": {
+        "value": 4
+      }
+    },
+    {
+      "input": {
+        "value": [0,0,1,6,0,0,0]
+      },
+      "output": {
+        "value": 3
+      }
+    },
+    {
+      "input": {
+        "value": []
+      },
+      "output": {
+        "value": 0
+      }
+    }
+  ]
+}

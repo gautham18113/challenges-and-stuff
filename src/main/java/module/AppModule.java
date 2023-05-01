@@ -55,6 +55,7 @@ public class AppModule extends AbstractModule {
             put("triangleProblem", "Triangle.json");
             put("coinChangeProblem", "CoinChange.json");
             put("numWaysToMakeChangeProblem", "NumWaysToMakeChange.json");
+            put("LISProblem", "LIS.json");
         }};
 
         problemNameMap.entrySet()

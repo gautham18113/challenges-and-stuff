@@ -8,6 +8,8 @@ import problem.compare.impl.GenericCompare;
 import problem.input.ProblemInput;
 import problem.output.ProblemOutput;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,8 +28,15 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
         Compare comparator =
                 getCompareMap().getOrDefault(jsonObj.getComparator(), new GenericCompare());
 
+        System.out.println("Begin test cases for " + this.getClass().getSimpleName());
         for (TestCase testCase : testCasesList) {
+            System.out.println("Executing test case: " + testCase.toString());
+            long start = System.nanoTime();
             O actual = this.solveProblem((I) testCase.getInput());
+            long stop = System.nanoTime();
+            NumberFormat formatter = new DecimalFormat("#0.00000");
+            System.out.println("Execution time is " + formatter.format(stop - start) + " seconds");
+
             O expected = (O) testCase.getOutput();
 
             if (!comparator.equal(expected.getValue(), actual.getValue())) {
@@ -38,6 +47,8 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
                 failedTestCases.add(testCase);
             }
         }
+        System.out.println("End test cases for " + this.getClass().getSimpleName());
+        System.out.println("\n");
 
         if (failedTestCases.size() > 0) {
             throw new AssertionError(String.format("Some testcases failed: %s", failedTestCases));
