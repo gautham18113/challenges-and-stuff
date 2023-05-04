@@ -1,4 +1,4 @@
-package solver.impl.dp;
+package solver.impl.dp.knapsack;
 
 import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;

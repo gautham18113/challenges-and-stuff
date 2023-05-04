@@ -1,4 +1,4 @@
-package solver.impl.dp;
+package solver.impl.dp.coinchange;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
