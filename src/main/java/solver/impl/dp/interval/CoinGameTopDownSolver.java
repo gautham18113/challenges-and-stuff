@@ -32,15 +32,24 @@ public class CoinGameTopDownSolver
     @Override
     public GenericOutput<Integer> solveProblem(GenericInput<List<Integer>> input) {
         // This is an interval dp problem
-        int score = dfs(input.getValue(), 0, input.getValue().size() - 1,
-                new int[input.getValue().size()][input.getValue().size()]);
+
+        List<Integer> coins = input.getValue();
+
+        int[] prefixSum = new int[coins.size() + 1];
+
+        for(int i = 1; i <= coins.size(); i++) {
+            prefixSum[i] = prefixSum[i - 1] + coins.get(i - 1);
+        }
+        int score = dfs(coins, 0, coins.size() - 1,
+                new int[input.getValue().size()][input.getValue().size()], prefixSum);
+
 
         GenericOutput<Integer> output = new GenericOutput<>();
         output.setValue(score);
         return output;
     }
 
-    public int dfs(List<Integer> coins, int left, int right, int[][] dp) {
+    public int dfs(List<Integer> coins, int left, int right, int[][] dp, int[] prefixSum) {
 
         // leaf, only one coin is left
         if (left == right) {
@@ -52,7 +61,6 @@ public class CoinGameTopDownSolver
             return dp[left][right];
         }
 
-        int total = coins.subList(left, right + 1).stream().reduce(Integer::sum).get();
 
         /**
          * Note that a common pitfall is to try to keep tracking of which player the current
@@ -73,9 +81,9 @@ public class CoinGameTopDownSolver
          * goes next picks 4, i.e. min(9,4). So 13 - 4 = 9 is the maximum possible score for the
          * current person.
          **/
-        dp[left][right] = total -
-                Math.min(dfs(coins, left + 1, right, dp), // opponent score if i pick left coin
-                        dfs(coins, left, right - 1, dp) // opponent score if i pick right coin
+        dp[left][right] = (prefixSum[right + 1] - prefixSum[left]) -
+                Math.min(dfs(coins, left + 1, right, dp, prefixSum), // opponent score if i pick left coin
+                        dfs(coins, left, right - 1, dp, prefixSum) // opponent score if i pick right coin
                 );
 
         return dp[left][right];

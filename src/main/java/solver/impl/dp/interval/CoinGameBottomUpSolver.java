@@ -36,6 +36,12 @@ public class CoinGameBottomUpSolver
         int n = coins.size();
         int[][] dp = new int[n + 1][n + 1];
 
+        int[] prefixSum = new int[coins.size() + 1];
+
+        for(int i = 1; i <= coins.size(); i++) {
+            prefixSum[i] = prefixSum[i - 1] + coins.get(i - 1);
+        }
+
         // bottom up is similar to top down, we try to calculate the score by size of the sub array
         // starting from sub array of size 1.
 
@@ -43,11 +49,10 @@ public class CoinGameBottomUpSolver
             // left bound must be between 1 and n - size
             for (int left = 1; left <= n - size; left++) {
                 int right = left + size;
-                int total = coins.subList(left - 1, right).stream().reduce(Integer::sum).orElse(0);
                 if (left == right) {
                     dp[left][right] = coins.get(left - 1);
                 } else {
-                    dp[left][right] = total - Math.min(dp[left + 1][right], dp[left][right - 1]);
+                    dp[left][right] = (prefixSum[right] - prefixSum[left - 1]) - Math.min(dp[left + 1][right], dp[left][right - 1]);
                 }
             }
         }
