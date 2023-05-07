@@ -11,6 +11,8 @@ import solver.impl.dp.coinchange.NumWaysToMakeChangeBottomUpSolver;
 import solver.impl.dp.coinchange.NumWaysToMakeChangeTopDownSolver;
 import solver.impl.dp.dynamicsubproblem.LISTopDownSolver;
 import solver.impl.dp.dynamicsubproblem.LongestDivisibleSubsetBottomUpSolver;
+import solver.impl.dp.interval.CoinGameBottomUpSolver;
+import solver.impl.dp.interval.CoinGameTopDownSolver;
 import solver.impl.dp.knapsack.*;
 import solver.impl.graph.FindNoOfIslandsSolver;
 import solver.impl.graph.FloodFillSolver;
@@ -52,7 +54,9 @@ public class Application {
                 injector.getInstance(NumWaysToMakeChangeTopDownSolver.class),
                 injector.getInstance(NumWaysToMakeChangeBottomUpSolver.class),
                 injector.getInstance(LISTopDownSolver.class),
-                injector.getInstance(LongestDivisibleSubsetBottomUpSolver.class)
+                injector.getInstance(LongestDivisibleSubsetBottomUpSolver.class),
+                injector.getInstance(CoinGameTopDownSolver.class),
+                injector.getInstance(CoinGameBottomUpSolver.class)
         ));
     }
 
