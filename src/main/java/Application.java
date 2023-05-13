@@ -5,6 +5,8 @@ import solver.Solver;
 import solver.impl.TwoSumUnsortedSolver;
 import solver.impl.bfs.OpenTheLockSolver;
 import solver.impl.bfs.SlidingPuzzleSolver;
+import solver.impl.dp.BrainPowerBottomUpSolver;
+import solver.impl.dp.BrainPowerTopDownSolver;
 import solver.impl.dp.coinchange.CoinChangeBottomUpSolver;
 import solver.impl.dp.coinchange.CoinChangeTopDownSolver;
 import solver.impl.dp.coinchange.NumWaysToMakeChangeBottomUpSolver;
@@ -56,7 +58,9 @@ public class Application {
                 injector.getInstance(LISTopDownSolver.class),
                 injector.getInstance(LongestDivisibleSubsetBottomUpSolver.class),
                 injector.getInstance(CoinGameTopDownSolver.class),
-                injector.getInstance(CoinGameBottomUpSolver.class)
+                injector.getInstance(CoinGameBottomUpSolver.class),
+                injector.getInstance(BrainPowerTopDownSolver.class),
+                injector.getInstance(BrainPowerBottomUpSolver.class)
         ));
     }
 
