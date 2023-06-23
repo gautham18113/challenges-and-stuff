@@ -18,6 +18,7 @@ import solver.impl.dp.interval.CoinGameTopDownSolver;
 import solver.impl.dp.knapsack.*;
 import solver.impl.graph.FindNoOfIslandsSolver;
 import solver.impl.graph.FloodFillSolver;
+import solver.impl.priorityqueue.HandOfStraightsSolver;
 import solver.impl.priorityqueue.KthSmallestInSortedMatrixSolver;
 import solver.impl.priorityqueue.MergeKSortedListsSolver;
 import solver.impl.priorityqueue.WordLadderSolver;
@@ -62,7 +63,8 @@ public class Application {
                 injector.getInstance(CoinGameBottomUpSolver.class),
                 injector.getInstance(BrainPowerTopDownSolver.class),
                 injector.getInstance(BrainPowerBottomUpSolver.class),
-                injector.getInstance(ContainerWithMostWaterSolver.class)
+                injector.getInstance(ContainerWithMostWaterSolver.class),
+                injector.getInstance(HandOfStraightsSolver.class)
         ));
     }
 

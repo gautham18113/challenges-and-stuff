@@ -1,0 +1,40 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "hand": [1,2,3,6,2,3,4,7,8],
+        "groupSize": 3
+      },
+      "output": {
+        "value": true
+      }
+    },
+    {
+      "input": {
+        "hand": [1,2,3,4,5],
+        "groupSize": 4
+      },
+      "output": {
+        "value": false
+      }
+    },
+    {
+      "input": {
+        "hand": [1,1,2,2,3,3],
+        "groupSize": 2
+      },
+      "output": {
+        "value": false
+      }
+    },
+    {
+      "input": {
+        "hand": [8,10,12],
+        "groupSize": 3
+      },
+      "output": {
+        "value": false
+      }
+    }
+  ]
+}

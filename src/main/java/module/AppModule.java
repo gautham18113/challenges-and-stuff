@@ -60,6 +60,7 @@ public class AppModule extends AbstractModule {
             put("coinGameProblem", "CoinGame.json");
             put("brainPowerProblem", "BrainPower.json");
             put("containerWithMostWaterProblem", "ContainerWithMostWater.json");
+            put("handOfStraightsProblem", "HandOfStraights.json");
         }};
 
         problemNameMap.entrySet()
