@@ -25,6 +25,7 @@ import solver.impl.toposort.AlienDictionarySolver;
 import solver.impl.toposort.CourseScheduleSolver;
 import solver.impl.toposort.MinimumTimeTaskSchedulingSolver;
 import solver.impl.toposort.ReconstructingSequenceSolver;
+import solver.impl.twopointer.ContainerWithMostWaterSolver;
 
 import java.util.Arrays;
 import java.util.List;
@@ -60,7 +61,8 @@ public class Application {
                 injector.getInstance(CoinGameTopDownSolver.class),
                 injector.getInstance(CoinGameBottomUpSolver.class),
                 injector.getInstance(BrainPowerTopDownSolver.class),
-                injector.getInstance(BrainPowerBottomUpSolver.class)
+                injector.getInstance(BrainPowerBottomUpSolver.class),
+                injector.getInstance(ContainerWithMostWaterSolver.class)
         ));
     }
 

@@ -59,6 +59,7 @@ public class AppModule extends AbstractModule {
             put("longestDivisibleSubsetProblem", "LongestDivisibleSubset.json");
             put("coinGameProblem", "CoinGame.json");
             put("brainPowerProblem", "BrainPower.json");
+            put("containerWithMostWaterProblem", "ContainerWithMostWater.json");
         }};
 
         problemNameMap.entrySet()
