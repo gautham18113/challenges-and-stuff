@@ -5,6 +5,7 @@ import solver.Solver;
 import solver.impl.TwoSumUnsortedSolver;
 import solver.impl.bfs.OpenTheLockSolver;
 import solver.impl.bfs.SlidingPuzzleSolver;
+import solver.impl.dfs.CountGoodNodesInBinaryTreeSolver;
 import solver.impl.dp.BrainPowerBottomUpSolver;
 import solver.impl.dp.BrainPowerTopDownSolver;
 import solver.impl.dp.coinchange.CoinChangeBottomUpSolver;
@@ -64,7 +65,8 @@ public class Application {
                 injector.getInstance(BrainPowerTopDownSolver.class),
                 injector.getInstance(BrainPowerBottomUpSolver.class),
                 injector.getInstance(ContainerWithMostWaterSolver.class),
-                injector.getInstance(HandOfStraightsSolver.class)
+                injector.getInstance(HandOfStraightsSolver.class),
+                injector.getInstance(CountGoodNodesInBinaryTreeSolver.class)
         ));
     }
 
