@@ -34,21 +34,20 @@ public class BST {
 
     public static BST toBinaryTree(List<Integer> values) {
 
-        return toBinaryTreeHelper(values, new BST(null), 0);
+        return toBinaryTreeHelper(values , 0);
     }
 
-    private static BST toBinaryTreeHelper(List<Integer> values, BST tree, int currIndex) {
-
-        if (currIndex < values.size()) {
-            tree.value = values.get(currIndex);
+    private static BST toBinaryTreeHelper(List<Integer> values, int currIndex) {
+        if (currIndex >= values.size()) {
+            return null;
+        } else if(values.get(currIndex) == null) {
+            return null;
         }
 
-        if (!((2 * currIndex) + 1 > values.size() - 1)) {
-            tree.left = new BST(null);
-            tree.right = new BST(null);
-            toBinaryTreeHelper(values, tree.left, (2 * currIndex) + 1);
-            toBinaryTreeHelper(values, tree.right, (2 * currIndex) + 2);
-        }
+        BST tree = new BST(values.get(currIndex));
+
+        tree.left = toBinaryTreeHelper(values, (2 * currIndex) + 1);
+        tree.right = toBinaryTreeHelper(values, (2 * currIndex) + 2);
 
         return tree;
     }
