@@ -3,7 +3,7 @@ package solver.impl.dfs;
 import com.google.common.reflect.TypeToken;
 import core.datastructure.BST;
 import model.TestCases;
-import module.SolverType;
+import solver.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;

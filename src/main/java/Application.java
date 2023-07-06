@@ -1,7 +1,7 @@
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import module.AppModule;
-import module.SolverType;
+import solver.SolverType;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;

@@ -5,7 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import core.datastructure.LL;
 import model.TestCases;
-import module.SolverType;
+import solver.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;

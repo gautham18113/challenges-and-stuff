@@ -4,7 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
-import module.SolverType;
+import solver.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.CourseScheduleInput;

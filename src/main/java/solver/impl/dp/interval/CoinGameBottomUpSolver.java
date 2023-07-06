@@ -2,7 +2,7 @@ package solver.impl.dp.interval;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
-import module.SolverType;
+import solver.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
