@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.OpenTheLockInput;
@@ -11,13 +12,12 @@ import problem.output.impl.GenericOutput;
 import solver.BaseSolver;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * https://leetcode.com/problems/open-the-lock/
  */
+@SolverType
 public class OpenTheLockSolver extends BaseSolver<OpenTheLockInput, GenericOutput<Integer>> {
 
     private Parser<TestCases<OpenTheLockInput, GenericOutput<Integer>>> parser;

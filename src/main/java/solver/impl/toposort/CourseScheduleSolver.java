@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.CourseScheduleInput;
@@ -14,6 +15,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@SolverType
 public class CourseScheduleSolver extends BaseSolver<CourseScheduleInput, GenericOutput<Boolean>> {
 
     @Inject

@@ -3,6 +3,7 @@ package solver.impl.dfs;
 import com.google.common.reflect.TypeToken;
 import core.datastructure.BST;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -18,6 +19,7 @@ import java.util.Objects;
 /**
  * https://leetcode.com/problems/count-good-nodes-in-binary-tree
  */
+@SolverType
 public class CountGoodNodesInBinaryTreeSolver
         extends BaseSolver<GenericInput<List<Integer>>, GenericOutput<Integer>> {
 

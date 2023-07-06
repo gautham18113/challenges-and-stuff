@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import lombok.EqualsAndHashCode;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -19,6 +20,7 @@ import java.util.Map;
  * https://leetcode.com/problems/partition-equal-subset-sum/
  * top down for this problem is the same as knapsack weight only top down
  */
+@SolverType
 public class PartitionTwoEqualSumSubsetsTopDownSolver extends BaseSolver<GenericInput<Integer[]>, GenericOutput<Boolean>> {
 
     @Inject

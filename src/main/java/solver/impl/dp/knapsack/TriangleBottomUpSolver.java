@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -12,6 +13,7 @@ import solver.BaseSolver;
 
 import java.util.Map;
 
+@SolverType
 public class TriangleBottomUpSolver
         extends BaseSolver<GenericInput<Integer[][]>, GenericOutput<Integer>> {
     @Inject

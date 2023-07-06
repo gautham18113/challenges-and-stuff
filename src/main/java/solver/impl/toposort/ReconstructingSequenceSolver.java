@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.ReconstructingSequenceInput;
@@ -15,6 +16,7 @@ import java.util.*;
 /**
  * https://leetcode.com/problems/sequence-reconstruction/
  */
+@SolverType
 public class ReconstructingSequenceSolver
         extends BaseSolver<ReconstructingSequenceInput, GenericOutput<Boolean>> {
 

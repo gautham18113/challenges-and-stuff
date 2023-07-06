@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import core.datastructure.Coord;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SolverType
 public class TriangleTopDownSolver
         extends BaseSolver<GenericInput<Integer[][]>, GenericOutput<Integer>> {
 

@@ -2,6 +2,7 @@ package solver.impl.dp.dynamicsubproblem;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Map;
 
+@SolverType
 public class LISTopDownSolver
         extends BaseSolver<GenericInput<Integer[]>, GenericOutput<Integer>> {
 

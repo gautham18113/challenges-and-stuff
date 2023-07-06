@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.TwoSumUnsortedInput;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SolverType
 public class TwoSumUnsortedSolver
         extends BaseSolver<TwoSumUnsortedInput, GenericOutput<Integer[]>> {
 

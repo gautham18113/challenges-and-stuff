@@ -2,6 +2,7 @@ package solver.impl.dp.interval;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -13,6 +14,7 @@ import javax.inject.Named;
 import java.util.List;
 import java.util.Map;
 
+@SolverType
 public class CoinGameTopDownSolver
         extends BaseSolver<GenericInput<List<Integer>>, GenericOutput<Integer>> {
 

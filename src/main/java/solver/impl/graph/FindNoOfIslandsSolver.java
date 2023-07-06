@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.name.Named;
 import core.datastructure.Coord;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 /**
  * https://leetcode.com/problems/number-of-islands/
  */
+@SolverType
 public class FindNoOfIslandsSolver
         extends BaseSolver<GenericInput<Integer[][]>, GenericOutput<Integer>> {
 

@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import core.datastructure.LL;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 /**
  * https://leetcode.com/problems/merge-k-sorted-lists
  */
+@SolverType
 public class MergeKSortedListsSolver
         extends BaseSolver<GenericInput<List<List<Integer>>>, GenericOutput<List<Integer>>> {
 

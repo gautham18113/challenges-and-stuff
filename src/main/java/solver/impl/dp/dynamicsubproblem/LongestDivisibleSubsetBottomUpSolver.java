@@ -2,6 +2,7 @@ package solver.impl.dp.dynamicsubproblem;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -16,6 +17,7 @@ import java.util.Map;
 /**
  * https://leetcode.com/problems/largest-divisible-subset/
  */
+@SolverType
 public class LongestDivisibleSubsetBottomUpSolver
         extends BaseSolver<GenericInput<Integer[]>, GenericOutput<Integer>> {
     @Inject

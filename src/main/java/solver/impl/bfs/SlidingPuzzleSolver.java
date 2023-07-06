@@ -5,18 +5,18 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import core.datastructure.Coord;
 import model.TestCases;
-import org.checkerframework.checker.units.qual.A;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
 import problem.output.impl.GenericOutput;
 import solver.BaseSolver;
 
-import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@SolverType
 public class SlidingPuzzleSolver
         extends BaseSolver<GenericInput<Integer[][]>, GenericOutput<Integer>> {
 

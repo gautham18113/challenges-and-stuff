@@ -2,6 +2,7 @@ package solver.impl.priorityqueue;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.HandOfStraightInput;
@@ -19,6 +20,7 @@ import java.util.*;
  * n: number of cards in hand
  * g: group size
  */
+@SolverType
 public class HandOfStraightsSolver extends BaseSolver<HandOfStraightInput, GenericOutput<Boolean>> {
     @Inject
     public HandOfStraightsSolver(

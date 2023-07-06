@@ -3,11 +3,10 @@ package solver.impl.priorityqueue;
 import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import com.google.inject.name.Names;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
-import problem.input.impl.GenericInput;
 import problem.input.impl.WordLadderInput;
 import problem.output.impl.GenericOutput;
 import solver.BaseSolver;
@@ -15,6 +14,7 @@ import solver.BaseSolver;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@SolverType
 public class WordLadderSolver extends BaseSolver<WordLadderInput, GenericOutput<Integer>> {
 
     private Parser<TestCases<WordLadderInput, GenericOutput<Integer>>> parser;

@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import lombok.Getter;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.KthSmallestInSortedMatrixInput;
@@ -15,6 +16,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+@SolverType
 public class KthSmallestInSortedMatrixSolver
         extends BaseSolver<KthSmallestInSortedMatrixInput, GenericOutput<Integer>> {
 

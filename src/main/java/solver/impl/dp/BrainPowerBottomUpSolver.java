@@ -2,6 +2,7 @@ package solver.impl.dp;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -16,6 +17,7 @@ import java.util.Map;
 /**
  * https://leetcode.com/problems/solving-questions-with-brainpower/description/
  */
+@SolverType
 public class BrainPowerBottomUpSolver
         extends BaseSolver<GenericInput<List<List<Integer>>>, GenericOutput<Integer>> {
 

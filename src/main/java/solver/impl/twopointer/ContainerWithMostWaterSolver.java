@@ -2,6 +2,7 @@ package solver.impl.twopointer;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.GenericInput;
@@ -21,6 +22,7 @@ import java.util.Map;
     by the shorter length. So, at every step, we store the area (if it is greater) and discard the
     side with shorter length until the pointers are on top of each other.
  */
+@SolverType
 public class ContainerWithMostWaterSolver
         extends BaseSolver<GenericInput<Integer[]>, GenericOutput<Integer>> {
     @Inject

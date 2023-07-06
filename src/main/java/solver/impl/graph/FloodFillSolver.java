@@ -5,6 +5,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.name.Named;
 import core.datastructure.Coord;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 
 import com.google.inject.Inject;
@@ -18,6 +19,7 @@ import java.util.*;
 /**
  * https://leetcode.com/problems/flood-fill/
  */
+@SolverType
 public class FloodFillSolver extends BaseSolver<FloodFillInput, GridOutput<Integer>> {
 
     @Inject

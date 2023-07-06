@@ -2,6 +2,7 @@ package solver.impl.dp.coinchange;
 
 import com.google.common.reflect.TypeToken;
 import model.TestCases;
+import module.SolverType;
 import parser.Parser;
 import problem.compare.Compare;
 import problem.input.impl.CoinChangeInput;
@@ -17,6 +18,7 @@ import java.util.Map;
 /**
  * https://leetcode.com/problems/coin-change/
  */
+@SolverType
 public class CoinChangeBottomUpSolver extends BaseSolver<CoinChangeInput, GenericOutput<Integer>> {
 
     @Inject
