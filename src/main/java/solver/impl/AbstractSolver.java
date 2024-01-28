@@ -37,7 +37,7 @@ public abstract class AbstractSolver<I extends ProblemInput, O extends ProblemOu
             O actual = this.solveProblem((I) testCase.getInput());
             long stop = System.nanoTime();
             NumberFormat formatter = new DecimalFormat("#0.00000");
-            System.out.println("Execution time is " + formatter.format(stop - start) + " seconds");
+            System.out.println("Execution time is " + formatter.format(stop - start) + " nano seconds");
 
             O expected = (O) testCase.getOutput();
 
