@@ -1,0 +1,16 @@
+{
+  "testCases": [
+    {
+      "input": {
+        "m": 3,
+        "n": 3,
+        "nums1": [1,2,3,0,0,0],
+        "nums2": [2,5,6]
+      },
+      "output":{
+        "value": [1,2,2,3,5,6]
+      }
+    }
+  ],
+  "comparator": "ARRAY_POSITIONAL_COMPARE"
+}

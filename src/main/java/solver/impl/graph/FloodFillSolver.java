@@ -4,15 +4,14 @@ package solver.impl.graph;
 import com.google.common.reflect.TypeToken;
 import com.google.inject.name.Named;
 import core.datastructure.Coord;
-import model.TestCases;
-import solver.SolverType;
+import model.testcase.TestCases;
+import model.solver.SolverType;
 import parser.Parser;
 
 import com.google.inject.Inject;
-import problem.compare.Compare;
-import problem.input.impl.FloodFillInput;
+import compare.Compare;
 import problem.output.impl.GridOutput;
-import solver.BaseSolver;
+import solver.impl.BaseSolver;
 
 import java.util.*;
 

@@ -4,13 +4,12 @@ import com.google.common.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import lombok.Getter;
-import model.TestCases;
-import solver.SolverType;
+import model.testcase.TestCases;
+import model.solver.SolverType;
 import parser.Parser;
-import problem.compare.Compare;
-import problem.input.impl.KthSmallestInSortedMatrixInput;
-import problem.output.impl.GenericOutput;
-import solver.BaseSolver;
+import compare.Compare;
+import solver.output.GenericOutput;
+import solver.impl.BaseSolver;
 
 import java.util.Comparator;
 import java.util.Map;

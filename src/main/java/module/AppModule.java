@@ -8,10 +8,10 @@ import com.google.inject.name.Names;
 import constants.AppConstants;
 import parser.Parser;
 import parser.impl.JsonParser;
-import problem.compare.Compare;
-import problem.compare.impl.ArrayCompareNonPositional;
-import problem.compare.impl.ArrayComparePositional;
-import problem.compare.impl.ArrayDeepCompare;
+import compare.Compare;
+import compare.impl.ArrayCompareNonPositional;
+import compare.impl.ArrayComparePositional;
+import compare.impl.ArrayDeepCompare;
 
 import java.util.Map;
 
@@ -39,7 +39,7 @@ public class AppModule extends AbstractModule {
 
     private void configureProblems() {
         final Map<String, String> problems =
-                (Map<String, String>) new JsonParser().parse("problemList.json",
+                (Map<String, String>) new JsonParser().parse("problems/problemList.json",
                         new TypeToken<Map<String, String>>() {
                         });
 

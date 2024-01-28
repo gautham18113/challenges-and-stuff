@@ -6,10 +6,18 @@ import lombok.Setter;
 import lombok.ToString;
 import problem.output.ProblemOutput;
 
+import java.util.Arrays;
+
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 public class GridOutput<T> implements ProblemOutput<T[][]> {
     T[][] value;
+
+    @Override
+    public String toString() {
+        return "GridOutput{" +
+                "value=" + Arrays.toString(value) +
+                '}';
+    }
 }

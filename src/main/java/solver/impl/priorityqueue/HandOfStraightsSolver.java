@@ -1,13 +1,12 @@
 package solver.impl.priorityqueue;
 
 import com.google.common.reflect.TypeToken;
-import model.TestCases;
-import solver.SolverType;
+import model.testcase.TestCases;
+import model.solver.SolverType;
 import parser.Parser;
-import problem.compare.Compare;
-import problem.input.impl.HandOfStraightInput;
-import problem.output.impl.GenericOutput;
-import solver.BaseSolver;
+import compare.Compare;
+import solver.output.GenericOutput;
+import solver.impl.BaseSolver;
 
 import javax.inject.Inject;
 import javax.inject.Named;

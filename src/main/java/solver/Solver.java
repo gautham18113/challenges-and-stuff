@@ -1,5 +1,7 @@
 package solver;
 
+import model.solver.SolverOutput;
+
 public interface Solver<I, O> {
     SolverOutput solve();
 
