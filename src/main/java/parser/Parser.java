@@ -3,8 +3,10 @@ package parser;
 
 import com.google.common.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+
 public interface Parser<T> {
 
-    T parse(String filePath, TypeToken<T> token);
+    T parse(String filePath, Type type);
 
 }

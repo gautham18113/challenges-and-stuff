@@ -13,6 +13,7 @@ import compare.impl.ArrayCompareNonPositional;
 import compare.impl.ArrayComparePositional;
 import compare.impl.ArrayDeepCompare;
 
+import java.lang.reflect.Type;
 import java.util.Map;
 
 
@@ -38,10 +39,9 @@ public class AppModule extends AbstractModule {
     }
 
     private void configureProblems() {
+        Type typeToken = new TypeToken<Map<String, String>>() { }.getType();
         final Map<String, String> problems =
-                (Map<String, String>) new JsonParser().parse("problems/problemList.json",
-                        new TypeToken<Map<String, String>>() {
-                        });
+                (Map<String, String>) new JsonParser<>().parse("problems/problemList.json", typeToken);
 
         problems.entrySet()
                 .forEach((entry) -> bindProblemModules(entry.getKey(), entry.getValue()));

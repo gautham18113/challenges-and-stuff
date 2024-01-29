@@ -7,19 +7,22 @@ import parser.Parser;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 
 public class JsonParser<T> implements Parser<T> {
-    public T parse(String filePath, TypeToken<T> token) {
+    public T parse(String filePath, Type typeToken) {
         GsonBuilder gson = new GsonBuilder();
         T myJson = null;
         try {
             InputStream stream = getClass().getClassLoader().getResourceAsStream(filePath);
             JsonReader reader = new JsonReader(new InputStreamReader(stream));
             reader.setLenient(true);
-            myJson = gson.create().fromJson(reader, token.getType());
+
+            myJson = gson.create().fromJson(reader, typeToken);
         } catch (Exception e) {
             System.out.println(e);
         }
         return myJson;
     }
+
 }

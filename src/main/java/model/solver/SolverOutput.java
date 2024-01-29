@@ -10,9 +10,9 @@ import java.util.List;
 @EqualsAndHashCode
 @Builder
 @AllArgsConstructor
-public class SolverOutput {
+public class SolverOutput<I, O> {
 
-    private List<TestCase> failedTestCases;
-    private List<TestCase> passedTestCases;
+    private List<TestCase<I, O>> failedTestCases;
+    private List<TestCase<I, O>> passedTestCases;
 
 }

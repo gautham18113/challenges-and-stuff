@@ -1,74 +1,76 @@
 package solver.impl.practice;
 
-import com.google.common.reflect.TypeToken;
+import com.google.gson.reflect.TypeToken;
 import model.testcase.TestCases;
-import parser.Parser;
 import compare.Compare;
-import solver.output.GenericOutput;
-import solver.impl.BaseSolver;
+import solver.impl.AbstractSolver;
 import model.solver.SolverType;
+import solver.output.GenericOutput;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.lang.reflect.Type;
+
 import java.util.Map;
 
 @SolverType
-public class MergeSortedArraySolver extends BaseSolver<MergeSortedArrayInput, GenericOutput<int[]>> {
+public class MergeSortedArraySolver extends AbstractSolver {
+
     @Inject
     public MergeSortedArraySolver(
-            @Named("jsonParser")
-            Parser parser,
             @Named("mergeSortedArrayProblem")
             String fileName,
             Map<String, Compare> compareMap) {
-        super(parser, fileName, compareMap);
+        super(fileName, compareMap);
     }
 
-    @Override
-    protected TestCases<MergeSortedArrayInput, GenericOutput<int[]>> getTestCases() {
-        return parser.parse(getConfigFile(), new TypeToken<>() {
-        });
-    }
 
     @Override
-    public GenericOutput<int[]> solveProblem(MergeSortedArrayInput input) {
-        int m = input.getM();
-        int n = input.getN();
-        int[] nums1 = input.getNums1();
-        int[] nums2 = input.getNums2();
+    public Object solve(Object input) {
+        MergeSortedArrayInput problemInput = (MergeSortedArrayInput) input;
+        int m = problemInput.getM();
+        int n = problemInput.getN();
+        int[] nums1 = problemInput.getNums1();
+        int[] nums2 = problemInput.getNums2();
         int[] result = new int[m + n];
 
-        int i=0;
-        int j=0;
+        int i = 0;
+        int j = 0;
 
-        int k=0;
+        int k = 0;
 
         while (i < m && j < n) {
             if (nums1[i] > nums2[j]) {
                 result[k] = nums2[j];
-                k++; j++;
-            } else if(nums1[i] < nums2[j]) {
+                k++;
+                j++;
+            } else if (nums1[i] < nums2[j]) {
                 result[k] = nums1[i];
-                k++; i++;
+                k++;
+                i++;
             } else {
                 result[k] = nums1[i];
-                k++; i++;
+                k++;
+                i++;
                 result[k] = nums2[j];
-                k++; j++;
+                k++;
+                j++;
             }
         }
 
         while (i < m) {
             result[k] = nums1[i];
-            k++; i++;
+            k++;
+            i++;
         }
 
         while (j < n) {
             result[k] = nums2[j];
-            k++; j++;
+            k++;
+            j++;
         }
 
-        for (k = 0;k < m + n; k++) {
+        for (k = 0; k < m + n; k++) {
             nums1[k] = result[k];
         }
 
@@ -76,6 +78,12 @@ public class MergeSortedArraySolver extends BaseSolver<MergeSortedArrayInput, Ge
         op.setValue(nums1);
 
         return op;
+    }
+
+    @Override
+    protected Type getType() {
+        return new TypeToken<TestCases<MergeSortedArrayInput, GenericOutput<int[]>>>() {
+        }.getType();
     }
 
 }

@@ -106,7 +106,6 @@ import model.testcase.TestCases;
 import parser.Parser;
 import compare.Compare;
 import solver.output.GenericOutput;
-import solver.impl.BaseSolver;
 import model.solver.SolverType;
 
 import javax.inject.Inject;

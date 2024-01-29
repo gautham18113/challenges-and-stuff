@@ -2,9 +2,7 @@ package solver;
 
 import model.solver.SolverOutput;
 
-public interface Solver<I, O> {
+public interface Solver {
     SolverOutput solve();
-
-    O solveProblem(I input);
 
 }

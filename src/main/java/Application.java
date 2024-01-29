@@ -7,6 +7,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import solver.Solver;
+import solver.impl.AbstractSolver;
 
 import java.util.*;
 
@@ -21,7 +22,7 @@ public class Application {
         for (BeanDefinition bd : beanDefs) {
             if (bd instanceof AnnotatedBeanDefinition) {
                 String clazzName= bd.getBeanClassName();
-                Solver obj = (Solver) injector.getInstance(ClassLoader.getSystemClassLoader().loadClass(clazzName));
+                AbstractSolver obj = (AbstractSolver) injector.getInstance(ClassLoader.getSystemClassLoader().loadClass(clazzName));
                 obj.solve();
             }
         }
